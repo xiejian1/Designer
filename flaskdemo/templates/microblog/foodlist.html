@@ -1,0 +1,123 @@
+{% extends "microblog/food.html" %}
+{% block style %}
+<style>
+    .lists{
+      display:flex;
+      flex-direction:column;
+      justify-content:space-around;
+      align-items:center;
+    }
+    .item{
+      min-height:350px;
+      padding-top:10px;
+      border:1px solid rgb(189,204,238);
+      box-shadow:1px 0 1px rgb(168,188,236),
+                 -1px 0 1px rgb(168,188,236),
+                 0px 1px 1px rgb(168,188,236),
+                 0px -1px 1px rgb(168,188,236);
+      margin-bottom:5px;
+    }
+    .item h4,p{
+      text-align:center;
+      margin:0;
+    }
+    .item h4{
+       font-size:18px;
+       font-family:Microsoft Yahei;
+       color:red;
+    }
+    .item p{
+       padding-top:5px;
+       font-size:16px;
+       font-family:SimSun ;
+    }
+    .item_img{
+      padding:5px 0px;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      align-items:center;
+    }
+    .item_img img{
+      padding:1px 1px;
+    }
+    .content{
+      margin-top:3px;
+    }
+    .content p{
+      margin:0px;
+    }
+    .button{
+      text-align:center;
+      margin-bottom:3px;
+      margin-top:3px;
+    }
+    .button a{
+      text-decoration:none;
+      color:red;
+    }
+    .button span{
+      height:25px;
+      width:100px;
+      border:1px solid rgb(241,88,67);
+      border-radius:5px;
+    }
+</style>
+{% endblock %}
+{% block food %}
+   <div class="lists">
+       <div class="item">
+           <h4>牛肉美食</h4>
+           <p>牛肉美食详细制作方法，过程及一些完成图片的预览效果</p>
+           <div class="item_img">
+               <img src="/img/food/niurou.jpg">
+               <img src="/img/food/niurou.jpg">
+               <img src="/img/food/niurou.jpg">
+               <img src="/img/food/niurou.jpg">
+           </div>
+           <div class="content">
+               <p>
+                   第1步:准备一系列的作料，食材。需要的材料有，黄瓜，精道的牛肉，一些配饰的花瓣<br>
+                   第2步:将我们需要的肉食材料进行清洗，然后进行腌制....
+               </p>
+           </div>
+           <div class="button">
+                   <a href="#">&#8594;<span>点击查看详细</span></a>
+           </div>
+       </div>
+       <div class="item">
+           <h4>粉丝美食</h4>
+           <p>粉丝美食制作方法及图片</p>
+           <div class="item_img">
+               <img src="/img/food/fensi.jpg">
+               <img src="/img/food/fensi.jpg">
+           </div>
+           <div class="content">
+               <p>
+                   第1步:准备一系列的作料，食材。需要的材料有，黄瓜，精道的牛肉，一些配饰的花瓣<br>
+                   第2步:将我们需要的肉食材料进行清洗，然后进行腌制....
+               </p>
+           </div>
+           <div class="button">
+                   <a href="#">&#8594;<span>点击查看详细</span></a>
+           </div>
+       </div>
+       <div class="item">
+           <h4>粉丝美食</h4>
+           <p>粉丝美食制作方法及图片</p>
+           <div class="item_img">
+               <img src="/img/food/fensi.jpg">
+               <img src="/img/food/fensi.jpg">
+           </div>
+           <div class="content">
+               <p>
+                   第1步:准备一系列的作料，食材。需要的材料有，黄瓜，精道的牛肉，一些配饰的花瓣<br>
+                   第2步:将我们需要的肉食材料进行清洗，然后进行腌制....
+               </p>
+           </div>
+           <div class="button">
+                   <a href="#">&#8594;<span>点击查看详细</span></a>
+           </div>
+       </div>
+   </div>
+{% endblock %}

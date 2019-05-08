@@ -1,7 +1,87 @@
 {% extends "base.html" %}
-
+{% block head %}
+<link rel="stylesheet" href="/css/slick.css">
+<link rel="stylesheet" href="/css/slick-theme.css">
+{% endblock %}
 {% block body %}
-  {% for post in posts %}
-    <p>{{post.author.nickname}} says: <b>{{post.body}}</b></p>
-  {% endfor %}
+  <div class="body">
+             <!--轮播图设计-->
+             <div class="caroul">
+                <div class="slick" data-slick='{"slidesToShow": 2, "slidesToScroll": 2}'>
+                    <div><a href="#"><img src="/img/1.png" alt=""></a></div>
+                    <div><a href="#"><img src="/img/2.png" alt=""></a></div>
+                    <div><a href="#"><img src="/img/3.png" alt=""></a></div>
+                    <div><a href="#"><img src="/img/44.jpg" alt=""></a></div>
+                    <div><a href="#"><img src="/img/55.jpg" alt=""></a></div>
+                </div>
+             </div>
+             <!--美食设计-->
+             <div class="food-picture">
+                 <div class="food">
+                      <div class="food-top">
+                         <h5>美食专题</h5>
+                         <a href="/foodlist/"><span>更多&#62;&#62;</span></a>
+                     </div>
+                     <div class="food-bottom">
+                         <div class="food_img"><a href="#"><img src="/img/food/food.jpg"></a></div>
+                         <div class="food_img"><a href="#"><img src="/img/food/food.jpg"></a></div>
+                         <div class="food_img"><a href="#"><img src="/img/food/food.jpg"></a></div>
+                     </div>
+                 </div>
+                 <div class="picture">
+                     <div class="food-top">
+                         <h5>图片专题</h5>
+                         <a href="#"><span>更多&#62;&#62;</span></a>
+                     </div>
+                     <div class="food-bottom">
+                         <div class="picture_img"><a href="#"><img src="/img/picture/picture.jpg"></a></div>
+                         <div class="picture_img"><a href="#"><img src="/img/picture/picture.jpg"></a></div>
+                         <div class="picture_img"><a href="#"><img src="/img/picture/picture.jpg"></a></div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+{% endblock %}
+{% block script %}
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/slick.min.js"></script>
+    <script>
+       $(function(){
+      $(".slick").slick({
+        dots: true,
+        infinite: true,
+        speed: 1000,
+        autoplay:true,
+        autoplaySpeed:2000,
+        arrows:true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+        ]
+      });
+    });
+    </script>
 {% endblock %}

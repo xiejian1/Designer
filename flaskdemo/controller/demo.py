@@ -3,24 +3,11 @@ import json
 from flask import render_template, request, jsonify, Response
 from flask.views import View
 
-
 class ShowUsers(View):
 
     def dispatch_request(self):
         print("程序执行到此处！")
-        posts = [  # fake array of posts
-            {
-                'author': {'nickname': 'John'},
-                'body': 'Beautiful day in Portland!'
-            },
-            {
-                'author': {'nickname': 'Susan'},
-                'body': 'The Avengers movie was so cool!'
-            }
-        ]
-        return render_template("microblog/index.html",posts=posts)
-
-
+        return render_template("microblog/index.html")
 
 class ListView(View):
 
@@ -57,4 +44,4 @@ class JsonTest(View):
         return jsonify({'a': 1, 'b': 5})
 class JsonData(View):
     def dispatch_request(self):
-       return  Response(json.dumps({'a': 1, 'b': 1}), content_type='application/json')
+       return render_template('microblog/test.html')

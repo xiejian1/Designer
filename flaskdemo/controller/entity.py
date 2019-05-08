@@ -4,6 +4,7 @@ from kombu import uuid
 from flaskdemo.model.models import User
 import json
 from flaskdemo.model.models import db
+
 class createtable(View):
 
     def dispatch_request(self):

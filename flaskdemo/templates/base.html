@@ -1,88 +1,38 @@
 <!DOCTYPE html>
-<html>
-
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block titlename %}{% endblock %}设计之家</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block titlename %}{% endblock %}设计之家</title>
 
-    {% block head %}{% endblock %}
-    <style>
-         .header{
-           height:80px;
-           width:100%;
-           opacity:0.95;
-           background:rgb(98,125,190);
-           border:1px solid rgb(88,113,173);
-           border-radius:5px;
-           box-shadow:2px 2px 1px rgb(124,128,135);
-         }
-        .header ul{
-         font-size:20px;
-         font-family:Microsoft Yahei;
+<link rel="stylesheet" href="/css/main.css">
+{% block head %}{% endblock %}
+{% block style%}{% endblock %}
+<style>
 
-        }
-        .header ul li{
-         list-style:none;
-         padding:0;
-         margin:0;
-         float:left;
-         display:block;
-        }
-        .header ul li a{
-          display:block;
-          min-width:60px;
-          height:40px;
-          line-height:40px;
-          text-align:center;
-          text-decoration:none;
-          color:#fff;
-        }
-        .main{
-          background:url('/img/background06.jpg') no-repeat;
-          background-size:cover;
-          min-height:560px;
-          width:100%;
-          margin:0 auto;
-          border:1px solid rgb(222,222,234);
-          border-radius:2px;
-          margin-top:5px;
-          box-shadow:-2px 0px 2px rgb(219,223,233),
-                     0px -2px 2px rgb(219,223,233),
-                     2px 0px 2px rgb(219,223,233),
-                     0px 2px 2px rgb(219,223,233)
-        }
-        .footer{
-          height:55px;
-          margin-top:5px;
-          text-align:center;
-          border:3px solid rgb(219,223,233);
-          box-shadow:-2px 0px 2px rgb(162,179,220),
-                     0px -2px 2px rgb(162,179,220),
-                     2px 0px 2px rgb(162,179,220),
-                     0px 2px 2px rgb(162,179,220);
-        }
-    </style>
+</style>
 </head>
-
 <body>
    <!--菜单栏-->
      <div class="header">
          <ul>
-             <li><a href="#">首页</a></li>
-             <li><a href="#">美食</a></li>
+             <li><a href="/">首页</a></li>
+             <li><a href="/foodlist/">美食</a></li>
              <li style="padding-left:15px;"><a href="#">图片设计</a></li>
          </ul>
      </div>
      <div class="main">
-         <div>
-             {% block body %}{% endblock %}
-         </div>
-
+         {% block body %}
+         {% endblock %}
      </div>
    <!--footer设置-->
      <div class="footer">
-          <p>copy right@2019 xiejian</p>
+         <div class="footer_content">
+             <p>copy right@2019 xiejian</p>
+         </div>
+
      </div>
 </body>
+{% block script %}
+{% endblock %}
+
 </html>

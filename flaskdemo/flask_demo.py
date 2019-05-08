@@ -2,6 +2,8 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flaskdemo.controller.demo import ShowUsers, JsonTest, JsonData, UserView
 from flaskdemo.controller.entity import createtable, add, delete, update
+from flaskdemo.controller.food import Foodlist
+
 app = Flask(__name__,static_url_path='')
 app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://xq:123456@127.0.0.1:3306/flaskdemo?charset=utf8"
 # 动态追踪修改设置，如未设置只会提示警告
@@ -11,7 +13,8 @@ app.config['SQLALCHEMY_ECHO'] = True
 db = SQLAlchemy(app)
 
 if __name__ == "__main__":
-    app.add_url_rule(rule='/users/', view_func=ShowUsers.as_view('show_users'))
+    app.add_url_rule(rule='/', view_func=ShowUsers.as_view('show_users'))
+    app.add_url_rule(rule='/foodlist/',view_func=Foodlist.as_view('foodlist'))
     app.add_url_rule(rule='/jsontest/', view_func=JsonTest.as_view('json_test'))
     app.add_url_rule(rule='/json/', view_func=JsonData.as_view('json_demo'))
     app.add_url_rule(rule='/list/', view_func=UserView.as_view('list_users'))
