@@ -134,9 +134,11 @@ align-items:center;
    margin-left:5px;
  }
  .food_img{
+   text-align:center;
    padding-right:5px;
  }
- .picture_img{
-   padding-right:5px;
- }
+ .food_img a{
+      color:red;
+      text-decoration:none;
+    }
 
