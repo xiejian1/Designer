@@ -1,0 +1,52 @@
+{% extends "microblog/food.html" %}
+{% block style %}
+<style>
+    .lists{
+      padding:0px 20px;
+      text-align:center;
+    }
+    .item{
+      margin-top:5px;
+      min-height:500px;
+      padding-top:10px;
+      border:1px solid rgb(189,204,238);
+      box-shadow:1px 0 1px rgb(168,188,236),
+                 -1px 0 1px rgb(168,188,236),
+                 0px 1px 1px rgb(168,188,236),
+                 0px -1px 1px rgb(168,188,236);
+      margin-bottom:5px;
+    }
+</style>
+{% endblock %}
+{% block food %}
+   <div class="lists">
+       <div class="item">
+           <p>牛肉美食详细制作方法，过程及一些完成图片的预览效果</p>
+           <div class="item_img">
+               <img src="/img/food/niurou.jpg">
+               <img src="/img/food/niurou.jpg">
+               <img src="/img/food/niurou.jpg">
+               <img src="/img/food/niurou.jpg">
+           </div>
+           <div class="content">
+               <p>
+                   第1步:准备一系列的作料，食材。需要的材料有，黄瓜，精道的牛肉，一些配饰的花瓣<br>
+                   第2步:将我们需要的肉食材料进行清洗，然后进行腌制....
+               </p>
+           </div>
+           <div class="item_img">
+               <img src="/img/food/niurou.jpg">
+               <img src="/img/food/niurou.jpg">
+               <img src="/img/food/niurou.jpg">
+               <img src="/img/food/niurou.jpg">
+           </div>
+           <div class="content">
+               <p>
+                   第1步:准备一系列的作料，食材。需要的材料有，黄瓜，精道的牛肉，一些配饰的花瓣<br>
+                   第2步:将我们需要的肉食材料进行清洗，然后进行腌制....
+               </p>
+           </div>
+       </div>
+
+   </div>
+{% endblock %}
