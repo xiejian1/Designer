@@ -3,7 +3,8 @@
 <style>
     .lists{
       padding:0px 20px;
-      text-align:center;
+      display:flex;
+      align-items:center;
     }
     .item{
       margin-top:5px;
@@ -15,38 +16,34 @@
                  0px 1px 1px rgb(168,188,236),
                  0px -1px 1px rgb(168,188,236);
       margin-bottom:5px;
+      padding-left:10px;
     }
 </style>
 {% endblock %}
 {% block food %}
    <div class="lists">
+       <div hidden><span id="content_id">{{id}}</span></div>
        <div class="item">
-           <p>牛肉美食详细制作方法，过程及一些完成图片的预览效果</p>
-           <div class="item_img">
-               <img src="/img/food/niurou.jpg">
-               <img src="/img/food/niurou.jpg">
-               <img src="/img/food/niurou.jpg">
-               <img src="/img/food/niurou.jpg">
-           </div>
-           <div class="content">
-               <p>
-                   第1步:准备一系列的作料，食材。需要的材料有，黄瓜，精道的牛肉，一些配饰的花瓣<br>
-                   第2步:将我们需要的肉食材料进行清洗，然后进行腌制....
-               </p>
-           </div>
-           <div class="item_img">
-               <img src="/img/food/niurou.jpg">
-               <img src="/img/food/niurou.jpg">
-               <img src="/img/food/niurou.jpg">
-               <img src="/img/food/niurou.jpg">
-           </div>
-           <div class="content">
-               <p>
-                   第1步:准备一系列的作料，食材。需要的材料有，黄瓜，精道的牛肉，一些配饰的花瓣<br>
-                   第2步:将我们需要的肉食材料进行清洗，然后进行腌制....
-               </p>
-           </div>
-       </div>
 
+       </div>
    </div>
+{% endblock %}
+{% block script %}
+<script src="/js/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+      var id = $('#content_id').text()
+      console.log(id)
+      $.ajax({
+          type:'POST',
+          //data:JSON.stringify({"id":id}),
+          success:function(result){
+            console.log(result);
+            if(result.msg=='ok'){
+              $('.item').html(result.html);
+            }
+          }
+      });
+    })
+</script>
 {% endblock %}

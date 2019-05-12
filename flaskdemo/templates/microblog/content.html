@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block style%}
+<style>
+  .editer{
+    border:1px solid #6d89c0;
+    padding:0px 3px;
+    width:80%;
+    margin:0px auto;
+    margin-bottom:3px;
+    background-color:white;
+    opacity:0.6;
+  }
+  .btn{
+    height:30px;
+    padding:0px 3px;
+    margin-top:3px;
+    margin-bottom:3px;
+  }
+  .btn button{
+    background-color:#37aeeb;
+    opacity:0.9;
+    float:right;
+    border:1px solid #b4c6eb;
+    width:100px;
+    height:30px;
+    margin:0px 10px;
+    border-radius:5px;
+  }
+  .btn span{
+    font-size:14px;
+    font-family:Microsoft YaHei;
+    color:white;
+  }
+  #toolbar{
+    border:1px solid #ccc;
+    background-color:#d0d7e5;
+    opacity:0.7;
+  }
+  #editor{
+    border:1px solid #ccc;
+    min-height:610px;
+  }
+</style>
+{% endblock %}
+{% block body %}
+<div class="editer">
+    <div id="toolbar"></div>
+    <div id="editor">
+     <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>
+    </div>
+    <div class="btn">
+        <button type="button" onclick="save()"><span>保存</span></button>
+        <button type="button" onclick="javascript:history.go(-1)"><span>返回</span></button>
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+<script src="/js/wangEditor.min.js"></script>
+<script src="/js/jquery.min.js"></script>
+ <script>
+     var E = window.wangEditor
+        var editor = new E('#toolbar','#editor')
+        // 或者 var editor = new E( document.getElementById('editor') )
+        // 将图片大小限制为 5M
+        // 限制一次最多上传 5 张图片
+        editor.customConfig.uploadImgMaxLength = 5
+        editor.customConfig.uploadImgMaxSize = 5 * 1024 * 1024
+        // 隐藏“网络图片”tab
+        editor.customConfig.showLinkImg = false
+        //自定义上传filename
+        editor.customConfig.uploadFileName = 'file'
+        editor.customConfig.uploadImgServer = '/imageupload/'
+        editor.customConfig.uploadImgHooks = {
+        customInsert: function (insertImg, result, editor) {
+                // 图片上传并返回结果，自定义插入图片的事件（而不是编辑器自动插入图片！！！）
+                // insertImg 是插入图片的函数，editor 是编辑器对象，result 是服务器端返回的结果
+                // 举例：假如上传图片成功后，服务器端返回的是 {url:'....'} 这种格式，即可这样插入图片：
+                var url =result.data;
+                insertImg(url);
+                // result 必须是一个 JSON 格式字符串！！！否则报错
+            }
+        }
+        // 自定义字体
+        editor.customConfig.fontNames = [
+            '宋体',
+            '微软雅黑',
+            'Arial',
+            'Tahoma',
+            'Verdana'
+        ]
+        //自定义配置颜色
+        editor.customConfig.colors = [
+        '#000000',
+        '#eeece0',
+        '#1c487f',
+        '#4d80bf',
+        '#c24f4a',
+        '#8baa4a',
+        '#7b5ba1',
+        '#46acc8',
+        '#f9963b',
+        '#ffffff'
+    ]
+        editor.create()
+ </script>
+<script>
+  function save(){
+    var content = editor.txt.html();
+    console.log('save 富文本文件',content);
+    $.ajax({
+      type:'POST',
+      url:'/editeupload/',
+      data:JSON.stringify({"content":content}),
+      success:function(result){
+      console.log(result)
+      }
+    });
+  }
+</script>
+{% endblock %}

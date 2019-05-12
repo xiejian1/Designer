@@ -1,0 +1,80 @@
+{% extends "base.html"%}
+{% block style %}
+<style>
+    .yulan{
+      border:1px solid #ccc;
+    }
+    .yulan p{
+      text-align:center;
+    }
+</style>
+{% endblock %}
+{% block body %}
+   <div class="yulan">
+         <form action="/yulan/" method="post" enctype='multipart/form-data'>
+            <input type="text" name="title">
+            <p>
+                图片上传前预览：<input type="file" name="file"  id="xdaTanFileImg" onchange="xmTanUploadImg(this)" accept="image/*"/>
+                <br>
+                <img id="xmTanImg"/>
+            </p>
+              <input style="background-color:red;" type="submit" value="保存">
+         </form>
+   </div>
+{% endblock %}
+{% block script %}
+<script src="/js/jquery.min.js"></script>
+<script type="text/javascript">
+            //判断浏览器是否支持FileReader接口
+            if (typeof FileReader == 'undefined') {
+                //使选择控件不可操作
+                document.getElementById("xdaTanFileImg").setAttribute("disabled", "disabled");
+            }
+            //选择图片，马上预览
+            function xmTanUploadImg(obj) {
+                var file = obj.files[0];
+                console.log(obj);
+                console.log(file);
+                console.log("file.size = " + file.size);  //file.size 单位为byte
+                var reader = new FileReader();
+                /*for(var i=0;i<file.length;i++){
+                  console.log(obj);
+                  console.log(file);
+                  console.log("file.size = " + file.size);  //file.size 单位为byte
+                  var reader = new FileReader();
+                  reader.readAsDataURL(fileList[i]);
+                   // 当文件读取成功时执行的函数
+                  reader.onload=function(e){
+                        div=document.createElement('div');
+                        div.innerHTML='<img src="'+this.result+'" />';
+                        document.getElementById("xmTanImg").appendChild(div);
+                  }
+
+                }*/
+
+                //读取文件过程方法
+                 reader.onloadstart = function (e) {
+                    console.log("开始读取....");
+                }
+                reader.onprogress = function (e) {
+                    console.log("正在读取中....");
+                }
+                reader.onabort = function (e) {
+                    console.log("中断读取....");
+                }
+                reader.onerror = function (e) {
+                    console.log("读取异常....");
+                }
+                reader.onload = function (e) {
+                    console.log("成功读取....");
+                    var img = document.getElementById("xmTanImg");
+                    img.src = e.target.result;
+                    console.log(e.target.result)
+                    //或者 img.src = this.result;
+                    //e.target.result == this.result
+                }
+                reader.readAsDataURL(file)
+            }
+
+</script>
+{% endblock %}

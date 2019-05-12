@@ -6,7 +6,7 @@ from flask.views import View
 class ShowUsers(View):
 
     def dispatch_request(self):
-        print("程序执行到此处！")
+        print("回到首页！")
         return render_template("microblog/index.html")
 
 class ListView(View):

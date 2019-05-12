@@ -43,11 +43,6 @@
          background-color:rgb(100,142,241);
          color:#fff;
       }
-      .foodlist-left ul li a:active{
-         background-color:rgb(54,107,229);
-         color:#fff;
-         opacity:0.9;
-      }
       .foodlist-right{
          min-height:550px;
          flex-shrink:1;
@@ -55,6 +50,11 @@
          border:1px solid rgb(106,148,219);
          box-shadow:-1px 0px 1px rgb(95,133,196),
                     1px 0px 1px rgb(95,133,196);
+      }
+      .active{
+         background-color:rgb(54,107,229);
+         color:#fff;
+         opacity:0.9;
       }
       </style>
 {% endblock %}
@@ -64,12 +64,12 @@
       <!--左侧导航栏-->
       <div class="foodlist-left">
           <ul>
-              <li><a href="#">家常菜</a></li>
-              <li><a href="#">荤菜</a></li>
-              <li><a href="#">素菜</a></li>
-              <li><a href="#">小吃</a></li>
-              <li><a href="#">汤类</a></li>
-              <li><a href="#">面条</a></li>
+              <li><a id="home" href="/foodlist/">家常菜</a></li>
+              <li><a id="meat" href="/meat/">荤菜</a></li>
+              <li><a id="vegetable" href="/vegetable/">素菜</a></li>
+              <li><a id="snack" href="/snack/">小吃</a></li>
+              <li><a id="soup" href="/soup/">汤类</a></li>
+              <li><a id="noodles" href="/noodles/">面条</a></li>
           </ul>
       </div>
       <!--右侧显示列表-->

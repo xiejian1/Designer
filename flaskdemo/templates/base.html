@@ -8,19 +8,24 @@
 {% block head %}{% endblock %}
 {% block style%}{% endblock %}
 <style>
-
+    .body{
+     width: 100%;
+     height: 100%;
+    }
 </style>
 </head>
 <body>
    <!--菜单栏-->
+   <div class="body">
      <div class="header">
          <ul>
              <li><a href="/">首页</a></li>
              <li><a href="/foodlist/">美食</a></li>
              <li style="padding-left:15px;"><a href="/picturelist/">图片设计</a></li>
+              <li style="padding-left:15px;"><a href="/admin/">系统管理</a></li>
          </ul>
      </div>
-     <div class="main">
+     <div class="main" style="background:url('/img/background06.jpg') no-repeat;background-size:cover;">
          {% block body %}
          {% endblock %}
      </div>
@@ -29,10 +34,9 @@
          <div class="footer_content">
              <p>copy right@2019 xiejian</p>
          </div>
-
      </div>
+ </div>
 </body>
 {% block script %}
 {% endblock %}
-
 </html>

@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+{% block head %}
+  <style>
+  .foodlist{
+        display:flex;
+        width:100%;
+        border:1px solid #ccc;
+        box-shadow: -1px 0px 1px rgb(151,191,229),
+               1px 0px 1px rgb(151,191,229),
+               0px 1px 1px rgb(151,191,229);
+  }
+  .foodlist-left{
+    height:550px;
+    margin-right:5px;
+    margin-left:3px;
+    width:180px;
+    flex-shrink:0;
+    border:1px solid #ccc;
+    background-color:rgb(82,122,219);
+    opacity:0.8;
+  }
+  .foodlist-left ul{
+    font-family:Microsoft Yahei;
+    font-size:18px;
+    padding:0;
+    margin:0;
+  }
+  .foodlist-left ul li {
+    padding-top:10px;
+    list-style:none;
+    display:block;
+  }
+  .foodlist-left ul li a {
+      padding-left:30px;
+      display:block;
+      height:40px;
+      line-height:40px;
+      text-align:left;
+      text-decoration:none;
+      color:#fff;
+  }
+  .foodlist-left ul li a:hover{
+     background-color:rgb(100,142,241);
+     color:#fff;
+  }
+  .active{
+     background-color:rgb(54,107,229);
+     color:#fff;
+     opacity:0.9;
+  }
+  .foodlist-right{
+     min-height:550px;
+     flex-shrink:1;
+     flex:1;
+     border:1px solid rgb(106,148,219);
+     box-shadow:-1px 0px 1px rgb(95,133,196),
+                1px 0px 1px rgb(95,133,196);
+  }
+  .lists{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.item{
+  margin-top:10px;
+  min-width:400px;
+  min-height:500px;
+  padding-top:10px;
+  border:1px solid rgb(189,204,238);
+  box-shadow:1px 0 1px rgb(168,188,236),
+             -1px 0 1px rgb(168,188,236),
+             0px 1px 1px rgb(168,188,236),
+             0px -1px 1px rgb(168,188,236);
+}
+.food_type{
+  height:50px;
+  line-height:50px;
+  clear:both;
+}
+.food_type span{
+  font-size:16px;
+  font-family:Microsoft YaHei;
+  color:#e24535;
+}
+.food_type input{
+  margin-left: 20px;
+  width: 349px;
+  height:30px;
+  border-radius:3px;
+  padding-left:5px;
+  padding-right:5px;
+  font-size:16px;
+  font-family:Microsoft YaHei;
+  margin-right: 3px;
+}
+.food_type select{
+  margin-left: 20px;
+  width: 363px;
+  height:30px;
+  border-radius:3px;
+  padding-left:5px;
+  padding-right:5px;
+  font-size:16px;
+  font-family:Microsoft YaHei;
+  margin-right: 3px;
+}
+.content-area{
+  display:flex;
+  margin-top:7px;
+}
+.area{
+   line-height:150px;
+   font-size:16px;
+   font-family:Microsoft YaHei;
+   color:#e24535;
+}
+ textarea{
+   min-height:150px;
+   width:350px;
+   padding-left:5px;
+   padding-right:5px;
+   margin-left:10px;
+   margin-right:3px;
+   border-width:0px;
+   padding-top:0px;
+   padding-bottom:0px;
+   font-size:16px;
+   font-family:Microsoft YaHei;
+}
+.content{
+  height:150px;
+  width:350px;
+}
+
+.btn{
+  float:right;
+}
+.btn .btn-left{
+  width:70px;
+  height:30px;
+  background-color:blue;
+  border-width:0px;
+  border-radius:5px;
+  color:white;
+  font-size:16px;
+  opacity:0.7;
+}
+</style>
+{% endblock %}
+{% block body %}
+  <!--美食列表-->
+  <div class="foodlist">
+      <!--左侧导航栏-->
+      <div class="foodlist-left">
+          <ul>
+              <li><a href="/admin/" id="index" >美食编辑</a></li>
+              <li><a href="/pictureedit/" id="picid">图片编辑</a></li>
+          </ul>
+      </div>
+      <!--右侧显示列表-->
+      <div class="foodlist-right">
+          {% block food %}
+             <div class="lists">
+               <div class="item">
+                  <form id="food" action="/pictureedit/" method="post" enctype="multipart/form-data">
+                       <div class="btn">
+                           <span></span>
+                           <input class="btn-left" type="button" value="返回" onclick="javascript:history.go(-1)">
+                           <input style="margin-right:5px;" class="btn-left" type="submit" value="添加">
+                       </div>
+                       <div class="food_type"><span>图片类别</span>
+                         <select name="pic_type">
+                                <option value="cutout">抠图</option>
+                                <option value="toning">调色</option>
+                                <option value="turing">精修</option>
+                                <option value="compose">海报合成</option>
+                                <option value="font">字体设计</option>
+                             <option value="logo">logo设计</option>
+                           </select>
+                       </div>
+                       <div class="food_type"><span>图片标题</span> <input type="text" name="pic_title"></div>
+                       <div class="content-area">
+                          <div class="area"> <span>图片的描述</span> </div>
+                           <textarea name="pic_desc"></textarea>
+                       </div>
+                       <div class="food_type"><span>图片上传</span> <input  type="file" name="files" multiple=""></div>
+                  </form>
+               </div>
+             </div>
+          {% endblock %}
+      </div>
+  </div>
+{% endblock %}
+{% block script %}
+<script src="/js/jquery.min.js"></script>
+<script>
+     $(document).ready(function(){
+      //默认选中第一个
+      $('#picid').addClass("active")
+    });
+</script>
+{% endblock  %}
