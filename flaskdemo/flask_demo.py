@@ -1,9 +1,7 @@
-import json
-import os
-from flask import Flask, request, Response
-from flask_sqlalchemy import SQLAlchemy
-from werkzeug.utils import secure_filename
 
+import os
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 from flaskdemo.controller.admin import  PictureEdit, Foodedit
 from flaskdemo.controller.contentedit import ContentEdit, ImageUpload, EditeUpload
 from flaskdemo.controller.demo import ShowUsers, JsonTest, JsonData, UserView
@@ -12,7 +10,7 @@ from flaskdemo.controller.food import Foodlist, Fooddetail
 from flaskdemo.controller.pictrue import Pictruelist, Picturedetail
 from flaskdemo.controller.test import Upload,Yulan, Multiple, EditerUplaod
 from flaskdemo.utils.config import UPLOAD_FOLDER, RegexConverter
-
+from flaskdemo.utils.filters import cut_desc, cut_descs
 
 BASE_DIR = os.path.abspath(os.path.dirname(__name__))
 app = Flask(__name__,static_url_path='')
@@ -23,6 +21,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.url_map.converters['regex'] = RegexConverter
+
+app.add_template_filter(cut_desc,'cut_desc')
+app.add_template_filter(cut_descs,'cut_descs')
 db = SQLAlchemy(app)
 
 
@@ -53,6 +54,7 @@ def main():
     app.add_url_rule(rule='/delete/', view_func=delete.as_view('delate'))
     app.add_url_rule(rule='/update/', view_func=update.as_view('update'))
     app.run(debug=True, host='localhost', port=8000)
+
 
 if __name__ == "__main__":
    main()

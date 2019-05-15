@@ -1,4 +1,4 @@
-{% extends "microblog/food.html" %}
+{% extends "base.html" %}
 {% block style %}
 <style>
     .lists{
@@ -10,21 +10,19 @@
       margin-top:5px;
       min-height:500px;
       padding-top:10px;
-      border:1px solid rgb(189,204,238);
-      box-shadow:1px 0 1px rgb(168,188,236),
-                 -1px 0 1px rgb(168,188,236),
-                 0px 1px 1px rgb(168,188,236),
-                 0px -1px 1px rgb(168,188,236);
+<!--      border:1px solid rgb(189,204,238);-->
+<!--      box-shadow:1px 0 1px rgb(168,188,236),-->
+<!--                 -1px 0 1px rgb(168,188,236),-->
+<!--                 0px 1px 1px rgb(168,188,236),-->
+<!--                 0px -1px 1px rgb(168,188,236);-->
       margin-bottom:5px;
       padding-left:10px;
     }
 </style>
 {% endblock %}
-{% block food %}
+{% block body %}
    <div class="lists">
-       <div hidden><span id="content_id">{{id}}</span></div>
        <div class="item">
-
        </div>
    </div>
 {% endblock %}

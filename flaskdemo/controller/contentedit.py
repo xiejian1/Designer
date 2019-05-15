@@ -21,7 +21,6 @@ class ContentEdit(View):
         print('打印id值',id)
         return render_template('microblog/contentedit.html',id=id,type=type)
 
-
 class EditeUpload(MethodView):
 
     def post(self):

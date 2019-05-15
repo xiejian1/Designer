@@ -24,6 +24,7 @@ class Foodedit(MethodView):
         food_type = request.form.get('food_type')
         food_title = request.form.get('food_title')
         food_desc = request.form.get('food_desc')
+        food_abstract = request.form.get('food_abstract')
         id = str(uuid.uuid3(uuid.NAMESPACE_URL,food_title))
         id = id.replace("-",'')
         food_pics = []
@@ -42,6 +43,7 @@ class Foodedit(MethodView):
         food.id = id
         food.food_type = food_type
         food.food_title = food_title
+        food.food_abstract = food_abstract
         food.food_desc = food_desc
         food.save()
 
@@ -54,8 +56,10 @@ class Foodedit(MethodView):
         print('打印id值',id)
         print('打印美食类型',food_type)
         print('打印美食标题', food_title)
+        print('打印美食的描述', food_abstract)
         print('打印美食描述', food_desc)
         print('打印美食图片路径', food_pics)
+
 
         return redirect(url_for('contentedit',id=id,type=food_type))
 
@@ -69,6 +73,7 @@ class PictureEdit(MethodView):
         print('foodedit post 请求')
         pic_type = request.form.get('pic_type')
         pic_title = request.form.get('pic_title')
+        pic_abstract = request.form.get('pic_abstract')
         pic_desc = request.form.get('pic_desc')
         id = str(uuid.uuid3(uuid.NAMESPACE_URL, pic_title))
         id = id.replace("-",'')
@@ -85,15 +90,16 @@ class PictureEdit(MethodView):
                 print('打印图片路径', picture_pics)
         picture = Picture()
         picture.id = id
-        picture.food_type = pic_type
-        picture.food_title = pic_title
-        picture.food_desc = pic_desc
+        picture.pic_type = pic_type
+        picture.pic_title = pic_title
+        picture.pic_abstract = pic_abstract
+        picture.pic_desc = pic_desc
         picture.save()
 
         for pic in picture_pics:
             picturepic = PicturePic()
             picturepic.pic_url = pic
-            picturepic.food_id = id
+            picturepic.picture_id = id
             picturepic.save()
 
         print('打印id值', id)

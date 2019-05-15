@@ -162,7 +162,7 @@
           {% block food %}
              <div class="lists">
                <div class="item">
-                  <form id="food" action="/admin/" method="post" enctype="multipart/form-data">
+                  <form id="food" onsubmit="return beforeSubmit(this);" action="/admin/" method="post" enctype="multipart/form-data">
                        <div class="btn">
                            <span></span>
                            <input class="btn-left" type="button" value="返回" onclick="javascript:history.go(-1)">
@@ -177,12 +177,15 @@
                                <option value="home">家常菜</option>
                            </select>
                        </div>
-                       <div class="food_type"><span>美食标题</span> <input type="text" name="food_title"></div>
-                       <div class="content-area">
+                       <div class="food_type"><span>美食标题</span> <input type="text" required="required" name="food_title" autocomplete="off"></div>
+
+                      <div class="food_type"><span>摘要描述</span> <input type="text" required="required" name="food_abstract" autocomplete="off"></div>
+
+                      <div class="content-area">
                           <div class="area"> <span>美食的描述</span> </div>
                            <textarea name="food_desc"></textarea>
                        </div>
-                       <div class="food_type"><span>美食图片</span> <input type="file" name="files" multiple=""></div>
+                       <div class="food_type"><span>美食图片</span> <input autocomplete="off" required="required" type="file" name="files" multiple=""></div>
                   </form>
                </div>
              </div>
@@ -197,6 +200,16 @@
      $(document).ready(function(){
       //默认选中第一个
       $('#index').addClass("active")
+      $('.content-area textarea').val('')
     });
+</script>
+<script>
+    function beforeSubmit(form){
+      if (form.food_desc.value==''){
+       alert('美食描述不能为空');
+       form.food_desc.focus();
+       return false;
+      }
+    }
 </script>
 {% endblock  %}

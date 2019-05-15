@@ -62,32 +62,79 @@
       border:1px solid rgb(241,88,67);
       border-radius:5px;
     }
+ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+ul.pagination li {display: inline;}
+ul.pagination li a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+ul.pagination li a.active {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+}
+ul.pagination li a:hover:not(.active) {background-color: #3071ea;}
+.disabled{
+  background-color:#d0d4dd
+}
 </style>
 {% endblock %}
 {% block food %}
    <div class="lists">
 
        {% for food in foods %}
-           {% if not loop.first %}|{% endif %}
            <div class="item">
                <h4>{{food.food_title}}</h4>
-<!--               <p>牛肉美食详细制作方法，过程及一些完成图片的预览效果</p>-->
+               {% if food.food_abstract %}
+                 <p>{{ food.food_abstract}}</p>
+               {% endif %}
                <div class="item_img">
                    {% for pic in food.foodpic %}
-                   {% if not loop.first %}|{% endif %}
+                   {% if not loop.first %}{% endif %}
                      <img src="{{pic.pic_url}}">
                    {% endfor %}
                </div>
                <div class="content">
                    <p>
-                       {{food.food_desc}}
+                       {{food.food_desc|cut_desc}}
                    </p>
+                   <p>{{food.food_desc|cut_descs}}...</p>
                </div>
                <div class="button">
                        <a href="/fooddetail/{{ food.id }}">&#8594;<span>点击查看详细</span></a>
                </div>
            </div>
        {% endfor %}
+       <!--分页设置-->
+       {% if foods|length >= paginate.per_page %}
+            <div >
+                    <ul class="pagination">
+
+                      <li {%if not paginate.has_prev %} class="disable"{% endif %}>
+                          <a href='{% if paginate.has_prev %}{{url_for("foodlist",page=paginate.pre_num)}}{% else %}#{% endif %}'>«</a>
+                      </li>
+                        {% for p in paginate.iter_pages() %}
+                             {% if p %}
+                                {% if p == paginate.page%}
+                                  <li><a href='{{ url_for("foodlist",page=p) }}' class="active">{{p}}</a></li>
+                                {% else %}
+                                  <li><a  href='{{url_for("foodlist",page=p)}}'>{{p}}</a></li>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        <li {% if not paginate.has_next %} class="disabled"{% endif %}>
+                            <a href='{% if paginate.has_next %}{{url_for("foodlist",page=paginate.next_num)}}{% else %}#{% endif %}'>»</a>
+                        </li>
+                    </ul>
+               </div>
+       {% endif %}
    </div>
 {% endblock %}
 {% block script %}
