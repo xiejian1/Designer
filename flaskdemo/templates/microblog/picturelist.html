@@ -62,59 +62,98 @@
       border:1px solid rgb(241,88,67);
       border-radius:5px;
     }
+ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+ul.pagination li {display: inline;}
+ul.pagination li a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+ul.pagination li a.active {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+}
+ul.pagination li a:hover:not(.active) {background-color: #3071ea;}
+.disabled{
+  display:none;
+}
 </style>
 {% endblock %}
 {% block food %}
    <div class="lists">
-       <div class="item">
-           <h4>风景图设计</h4>
-           <p>风景图片，得到一张风景图片之后，我们需要进行后期的修图操作，已达到完美</p>
-           <div class="item_img">
-               <img src="/img/picture/dongrizhiguang.jpg">
+       {% if pictures %}
+       {% for picture in pictures %}
+           <div class="item">
+               <h4>{{picture.pic_title}}</h4>
+               {% if picture.pic_abstract %}
+                 <p>{{ picture.pic_abstract}}</p>
+               {% endif %}
+               <div class="item_img">
+                   {% for pic in picture.picturepic %}
+                   {% if not loop.first %}{% endif %}
+                     <img src="{{pic.pic_url}}">
+                   {% endfor %}
+               </div>
+               <div class="content">
+                   {% if desc|length > 50 %}
+                   <p>
+                       {{ picture.pic_desc|cut_desc}}
+                   </p>
+                   <p>
+                       {{picture.pic_desc|cut_descs}}
+                   </p>
+                   {% else %}
+                     <p>
+                         {{picture.pic_desc}}
+                     </p>
+                   {% endif %}
+               </div>
+               <div class="button">
+                       <a href="/picturedetail/{{ picture.id }}">&#8594;<span>点击查看详细</span></a>
+               </div>
            </div>
-           <div class="content">
-               <p>
-                   第1步:将我们拍摄的图片导入到ps中<br>
-                   第2步:在ps中，我们首先使用camera row进行色彩的调节,然后进行其他的调整...
-               </p>
-           </div>
-           <div class="button">
-                   <a href="/picturedetail/">&#8594;<span>点击查看详细</span></a>
-           </div>
-       </div>
-       <div class="item">
-           <h4>图像精修</h4>
-           <p>图像精修，一般商业使用的图像修复操作</p>
-           <div class="item_img">
-               <img src="/img/picture/jingxiu.jpg">
-
-           </div>
-           <div class="content">
-               <p>
-                  第1步:将我们拍摄的图片导入到ps中<br>
-                   第2步:在ps中，我们首先使用camera row进行色彩的调节,然后进行其他的调整...
-               </p>
-           </div>
-           <div class="button">
-                   <a href="/picturedetail/">&#8594;<span>点击查看详细</span></a>
-           </div>
-       </div>
-       <div class="item">
-           <h4>创意设计</h4>
-           <p>创意设计，一般涉及到的海报合成</p>
-           <div class="item_img">
-               <img src="/img/picture/fengjing.jpg">
-               <img src="/img/picture/picture.jpg">
-           </div>
-           <div class="content">
-               <p>
-                   第1步:将我们拍摄的图片导入到ps中<br>
-                   第2步:在ps中，我们首先使用camera row进行色彩的调节,然后进行其他的调整...
-               </p>
-           </div>
-           <div class="button">
-                   <a href="/picturedetail/">&#8594;<span>点击查看详细</span></a>
-           </div>
-       </div>
+       {% endfor %}
+       {% endif %}
+       <!--分页设置-->
+       {% if pictures|length >= paginate.per_page %}
+               <div >
+                    <ul class="pagination">
+                        {% if paginate.has_prev %}
+                          <li>
+                              <a href='{% if paginate.has_prev %}{{url_for("pictruelist",page=paginate.pre_num)}}{% else %}#{% endif %}'>«</a>
+                          </li>
+                        {% endif %}
+                        {% for p in paginate.iter_pages() %}
+                             {% if p %}
+                                {% if p == paginate.page%}
+                                  <li><a href='{{ url_for("picturelist",page=p) }}' class="active">{{p}}</a></li>
+                                {% else %}
+                                  <li><a  href='{{url_for("picturelist",page=p)}}'>{{p}}</a></li>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        {%if  paginate.has_next %}
+                            <li >
+                                <a href='{% if paginate.has_next %}{{url_for("picturelist",page=paginate.next_num)}}{% else %}#{% endif %}'>»</a>
+                            </li>
+                        {% endif  %}
+                    </ul>
+               </div>
+       {% endif %}
    </div>
+{% endblock %}
+{% block script %}
+<script src="/js/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('#index').addClass("active")
+  });
+</script>
 {% endblock %}

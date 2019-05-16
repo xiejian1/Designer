@@ -7,7 +7,7 @@ from werkzeug.utils import secure_filename, redirect
 
 from flaskdemo.model.models import Food, FoodPic, Picture, PicturePic
 from flaskdemo.utils.config import UPLOAD_FOLDER
-
+import datetime
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 def allowed_file(filename):
     return '.' in filename and \
@@ -27,6 +27,9 @@ class Foodedit(MethodView):
         food_abstract = request.form.get('food_abstract')
         id = str(uuid.uuid3(uuid.NAMESPACE_URL,food_title))
         id = id.replace("-",'')
+
+        food_date = datetime.date.today()
+
         food_pics = []
 
         files = request.files.getlist("files")
@@ -45,6 +48,7 @@ class Foodedit(MethodView):
         food.food_title = food_title
         food.food_abstract = food_abstract
         food.food_desc = food_desc
+        food.food_date = food_date
         food.save()
 
         for pic in food_pics:
@@ -59,6 +63,7 @@ class Foodedit(MethodView):
         print('打印美食的描述', food_abstract)
         print('打印美食描述', food_desc)
         print('打印美食图片路径', food_pics)
+        print('打印时间', food_date)
 
 
         return redirect(url_for('contentedit',id=id,type=food_type))
@@ -77,6 +82,7 @@ class PictureEdit(MethodView):
         pic_desc = request.form.get('pic_desc')
         id = str(uuid.uuid3(uuid.NAMESPACE_URL, pic_title))
         id = id.replace("-",'')
+        pic_date = datetime.date.today()
         picture_pics = []
         files = request.files.getlist("files")
         for file in files:
@@ -94,6 +100,7 @@ class PictureEdit(MethodView):
         picture.pic_title = pic_title
         picture.pic_abstract = pic_abstract
         picture.pic_desc = pic_desc
+        picture.pic_date = pic_date
         picture.save()
 
         for pic in picture_pics:
@@ -107,5 +114,6 @@ class PictureEdit(MethodView):
         print('打印美食标题', pic_title)
         print('打印美食描述', pic_desc)
         print('打印美食图片路径', picture_pics)
+        print("打印时间",pic_date)
 
         return redirect(url_for('contentedit',id=id,type=pic_type))

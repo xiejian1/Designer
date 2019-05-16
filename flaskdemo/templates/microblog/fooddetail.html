@@ -3,8 +3,6 @@
 <style>
     .lists{
       padding:0px 20px;
-      display:flex;
-      align-items:center;
     }
     .item{
       margin-top:5px;
@@ -23,6 +21,7 @@
 {% block body %}
    <div class="lists">
        <div class="item">
+
        </div>
    </div>
 {% endblock %}
@@ -30,8 +29,6 @@
 <script src="/js/jquery.min.js"></script>
 <script>
     $(document).ready(function(){
-      var id = $('#content_id').text()
-      console.log(id)
       $.ajax({
           type:'POST',
           //data:JSON.stringify({"id":id}),

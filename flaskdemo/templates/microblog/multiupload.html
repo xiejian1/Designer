@@ -34,6 +34,11 @@
 		var fileList=obj.files;
 		//对文件组进行遍历，可以到控制台打印出fileList去看看
 		for(var i=0;i<fileList.length;i++){
+		    console.log(fileList[i].size)
+		    if(fileList[i].size>2*1024*1024){
+		      alert('图片大小不能大于1M');
+		      return ;
+		    }
 			var reader= new FileReader();
 			reader.readAsDataURL(fileList[i]);
 			 // 当文件读取成功时执行的函数

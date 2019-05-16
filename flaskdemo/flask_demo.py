@@ -10,7 +10,7 @@ from flaskdemo.controller.food import Foodlist, Fooddetail
 from flaskdemo.controller.pictrue import Pictruelist, Picturedetail
 from flaskdemo.controller.test import Upload,Yulan, Multiple, EditerUplaod
 from flaskdemo.utils.config import UPLOAD_FOLDER, RegexConverter
-from flaskdemo.utils.filters import cut_desc, cut_descs
+from flaskdemo.utils.filters import cut_desc, cut_descs, toStr
 
 BASE_DIR = os.path.abspath(os.path.dirname(__name__))
 app = Flask(__name__,static_url_path='')
@@ -19,11 +19,15 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://xq:123456@127.0.0.1:3306/flaskd
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #查询时会显示原始SQL语句
 app.config['SQLALCHEMY_ECHO'] = True
+app.config['SQLALCHEMY_POOL_SIZE'] = 100
+app.config['SQLALCHEMY_MAX_OVERFLOW'] = 20
+
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.url_map.converters['regex'] = RegexConverter
 
 app.add_template_filter(cut_desc,'cut_desc')
 app.add_template_filter(cut_descs,'cut_descs')
+app.add_template_filter(toStr,'string')
 db = SQLAlchemy(app)
 
 
@@ -39,7 +43,8 @@ def main():
     app.add_url_rule(rule='/fooddetail/<string:id>', view_func=Fooddetail.as_view('fooddetail'))
 
     app.add_url_rule(rule='/picturelist/', view_func=Pictruelist.as_view('pictruelist'))
-    app.add_url_rule(rule='/picturedetail/', view_func=Picturedetail.as_view('picturedetail'))
+    app.add_url_rule(rule='/picturedetail/<string:id>', view_func=Picturedetail.as_view('picturedetail'))
+
     app.add_url_rule(rule='/admin/', view_func=Foodedit.as_view('admin'))
     app.add_url_rule(rule='/pictureedit/', view_func=PictureEdit.as_view('pictureedit'))
     app.add_url_rule(rule='/contentedit/<string:type>/<string:id>', view_func=ContentEdit.as_view('contentedit'))

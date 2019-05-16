@@ -13,14 +13,14 @@ class Foodlist(View):
         if not 'page' in request.args:
             print('默认不传参数')
             page = int(1)
-            per_page = int(3)
+            per_page = int(8)
             paginate = Food.query.paginate(page, per_page, error_out=False)
             foods = paginate.items
             return render_template('microblog/home.html',paginate=paginate,foods=foods)
         else:
             print('传入参数')
             page = int(request.args.get('page'))
-            per_page = int(3)
+            per_page = int(8)
             paginate = Food.query.paginate(page, per_page, error_out=False)
             foods = paginate.items
             return render_template('microblog/home.html', paginate=paginate, foods=foods)

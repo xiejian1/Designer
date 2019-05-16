@@ -49,12 +49,17 @@
          opacity:0.9;
       }
       .foodlist-right{
-         min-height:550px;
-         flex-shrink:1;
+        min-height:660px;
+        flex-shrink:1;
          flex:1;
          border:1px solid rgb(106,148,219);
          box-shadow:-1px 0px 1px rgb(95,133,196),
                     1px 0px 1px rgb(95,133,196);
+      }
+      .active{
+         background-color:rgb(54,107,229);
+         color:#fff;
+         opacity:0.9;
       }
       </style>
 {% endblock %}
@@ -64,7 +69,7 @@
       <!--左侧导航栏-->
       <div class="foodlist-left">
           <ul>
-              <li><a href="#">抠图</a></li>
+              <li><a id="index" href="/picturelist/">抠图</a></li>
               <li><a href="#">调色</a></li>
               <li><a href="#">精修</a></li>
               <li><a href="#">海报合成</a></li>

@@ -17,6 +17,7 @@ def stringdate():
     datenow = datetime.datetime.now()
     print('打印系统时间年份',datenow.year)
     strdate = datetime.datetime.strftime(datenow,"%Y-%m-%d")
+    print(datetime.date.today())
     print('将时间格式转换为字符串',strdate)
 
 def dateTostr():
@@ -28,6 +29,11 @@ def dateTostr():
     strdate = datetime.datetime.strftime(datenow,"%Y-%m-%d")
     print('打印转换后的时间',strdate)
 
+def dateStr():
+    """打印年月日形式的数据"""
+    d = datetime.datetime.date()
+    print('打印年月日形式的数据')
+    print("打印时间",d)
 
 class Graph(object):
     """图的深度优先算法，
@@ -110,17 +116,19 @@ class Graph(object):
 if __name__ =="__main__":
     # timechuo()
     # stringdate()
-    g = Graph()
-    g.add_nodes([i + 1 for i in range(8)])
-    g.add_edge((1, 2))
-    g.add_edge((1, 3))
-    g.add_edge((2, 4))
-    g.add_edge((2, 5))
-    g.add_edge((4, 8))
-    g.add_edge((5, 8))
-    g.add_edge((3, 6))
-    g.add_edge((3, 7))
-    g.add_edge((6, 7))
-    print("nodes:", g.nodes())
-    order = g.breadth_first_search(1)
+    # g = Graph()
+    # g.add_nodes([i + 1 for i in range(8)])
+    # g.add_edge((1, 2))
+    # g.add_edge((1, 3))
+    # g.add_edge((2, 4))
+    # g.add_edge((2, 5))
+    # g.add_edge((4, 8))
+    # g.add_edge((5, 8))
+    # g.add_edge((3, 6))
+    # g.add_edge((3, 7))
+    # g.add_edge((6, 7))
+    # print("nodes:", g.nodes())
+    # order = g.breadth_first_search(1)
     # order = g.depth_first_search(1)
+    #dateStr()
+    stringdate()
