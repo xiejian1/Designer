@@ -15,3 +15,4 @@
 # # #生成数据方法
 # # #from blog2 import db
 # # #db.create_all()
+

@@ -39,10 +39,10 @@ def main():
     app.add_url_rule(rule='/multiple/', view_func=Multiple.as_view('multiple'))
 
     app.add_url_rule(rule='/', view_func=ShowUsers.as_view('index'))
-    app.add_url_rule(rule='/foodlist/', view_func=Foodlist.as_view('foodlist'))
+    app.add_url_rule(rule='/food/home/', view_func=Foodlist.as_view('foodlist'))
     app.add_url_rule(rule='/fooddetail/<string:id>', view_func=Fooddetail.as_view('fooddetail'))
 
-    app.add_url_rule(rule='/picturelist/', view_func=Pictruelist.as_view('pictruelist'))
+    app.add_url_rule(rule='/picture/cutout/', view_func=Pictruelist.as_view('pictruelist'))
     app.add_url_rule(rule='/picturedetail/<string:id>', view_func=Picturedetail.as_view('picturedetail'))
 
     app.add_url_rule(rule='/admin/', view_func=Foodedit.as_view('admin'))

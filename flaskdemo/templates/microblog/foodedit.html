@@ -170,11 +170,14 @@
                        </div>
                        <div class="food_type"><span>美食类别</span>
                            <select name="food_type">
-                                <option value="meat">肉类</option>
-                                <option value="vegetable">蔬菜</option>
-                                <option value="snack">小吃</option>
-                                <option value="sweete">甜点</option>
+                                <option value="meats">肉类</option>
+                                <option value="meat">荤菜</option>
+                                <option value="snacks">小吃</option>
+                                <option value="dessert">甜点</option>
+                                <option value="vegetable">素菜</option>
+                                <option value="soup">汤类</option>
                                <option value="home">家常菜</option>
+                                <option value="noodles">面条</option>
                            </select>
                        </div>
                        <div class="food_type"><span>美食标题</span> <input type="text" required="required" name="food_title" autocomplete="off"></div>
@@ -228,7 +231,7 @@
 		//对文件组进行遍历，可以到控制台打印出fileList去看看
 		for(var i=0;i<fileList.length;i++){
 		    console.log(fileList[i].size)
-		    if(fileList[i].size>1*1024*1024){
+		    if(fileList[i].size>2*1024*1024){
 		      alert('图片大小不能大于1M');
 		      $('#uploadfile').val('');
 		      return ;

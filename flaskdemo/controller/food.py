@@ -9,19 +9,30 @@ from flaskdemo.model.models import Food, FoodContent
 class Foodlist(View):
     """美食list集合"""
     def dispatch_request(self):
-        print('获取美食专题列表')
+        print('get food home type！')
+        print('the request url is ',request.url)
         if not 'page' in request.args:
             print('默认不传参数')
+            print('the request path is ', request.path)
+            foodtype = str(request.path).rsplit('/',2)[1]
+            print('print the type', foodtype)
             page = int(1)
             per_page = int(8)
-            paginate = Food.query.paginate(page, per_page, error_out=False)
+            # paginate = Food.query.paginate(page, per_page, error_out=False)
+            paginate = Food.query.filter(Food.food_type=='meat').order_by(Food.food_date.desc())\
+                .paginate(page, per_page, error_out=False)
             foods = paginate.items
             return render_template('microblog/home.html',paginate=paginate,foods=foods)
         else:
             print('传入参数')
+            print('the request path is ',request.path)
             page = int(request.args.get('page'))
             per_page = int(8)
-            paginate = Food.query.paginate(page, per_page, error_out=False)
+            foodtype = str(request.path).split('/')[1]
+            print('print the type', foodtype)
+            # paginate = Food.query.paginate(page, per_page, error_out=False)
+            paginate = Food.query.filter(Food.food_type == foodtype).order_by(Food.food_date.desc()) \
+                .paginate(page, per_page, error_out=False)
             foods = paginate.items
             return render_template('microblog/home.html', paginate=paginate, foods=foods)
 

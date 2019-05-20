@@ -15,26 +15,40 @@ class Pictruelist(View):
             print('默认不传参数')
             page = int(1)
             per_page = int(8)
-            paginate = Picture.query.paginate(page, per_page, error_out=False)
+            print('print the request url',request.url)
+            picturetype = str(request.path).rsplit('/',2)[1]
+            print('print the picture type',picturetype)
+            paginate = Picture.query.filter(Picture.pic_type == picturetype).order_by(Picture.pic_date.desc())\
+                .paginate(page, per_page, error_out=False)
             pics = paginate.items
             return render_template('microblog/picturelist.html', paginate=paginate, pictures=pics)
         else:
             print('传入参数')
+            print('print the request url',request.url)
             page = int(request.args.get('page'))
             per_page = int(8)
-            paginate = Picture.query.paginate(page, per_page, error_out=False)
+            print('print the request path',request.path)
+            picturetype = str(request.path).split('/')[1]
+            print('print the type ',picturetype)
+            paginate = Picture.query.filter(Picture.pic_type==picturetype).order_by(Picture.pic_date.desc())\
+                .paginate(page, per_page, error_out=False)
             pics = paginate.items
             return render_template('microblog/picturelist.html',paginate=paginate,pictures = pics)
 
 
 class Picturedetail(MethodView):
+
     """美食制作详细过程页"""
     def get(self,id):
+        print('print the url',request.url)
+        print('print the path',request.path)
         return render_template('microblog/picturedetail.html',id=id)
 
     def post(self,id):
         """返回内容"""
         print('food 详细信息')
+        print('print the url',request.url)
+        print('print the path',request.path)
         picturecontent = PictureContent.query.filter_by(picture_id=id).first()
         print(picturecontent.content)
         return Response(json.dumps({'html':str(picturecontent.content),'msg':'ok'}),content_type='application/json')
