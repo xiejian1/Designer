@@ -11,6 +11,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #查询时会显示原始SQL语句
 app.config['SQLALCHEMY_ECHO'] = True
 db = SQLAlchemy(app)
+# from flaskdemo import app, db
 
 manager = Manager(app)
 # 要使用flask-migrate，必须先绑定db和app

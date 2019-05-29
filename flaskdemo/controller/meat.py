@@ -6,7 +6,7 @@ from flask.views import View, MethodView
 from flaskdemo.model.models import Food, FoodContent
 
 
-class Foodlist(View):
+class Meatlist(View):
     """美食list集合"""
     def dispatch_request(self):
         print('get food home type！')
@@ -19,10 +19,10 @@ class Foodlist(View):
             page = int(1)
             per_page = int(8)
             # paginate = Food.query.paginate(page, per_page, error_out=False)
-            paginate = Food.query.filter(Food.food_type=='home').order_by(Food.food_date.desc())\
+            paginate = Food.query.filter(Food.food_type=='meat').order_by(Food.food_date.desc())\
                 .paginate(page, per_page, error_out=False)
             foods = paginate.items
-            return render_template('microblog/home.html',paginate=paginate,foods=foods)
+            return render_template('microblog/food/meat.html',paginate=paginate,foods=foods)
         else:
             print('传入参数')
             print('the request path is ',request.path)
@@ -34,9 +34,10 @@ class Foodlist(View):
             paginate = Food.query.filter(Food.food_type == foodtype).order_by(Food.food_date.desc()) \
                 .paginate(page, per_page, error_out=False)
             foods = paginate.items
-            return render_template('microblog/home.html', paginate=paginate, foods=foods)
+            return render_template('microblog/food/meat.html', paginate=paginate, foods=foods)
 
-class Fooddetail(MethodView):
+
+class Meatdetail(MethodView):
     """美食制作详细过程页"""
     def get(self,id):
         return render_template('microblog/fooddetail.html',id=id)
@@ -48,8 +49,7 @@ class Fooddetail(MethodView):
         print(foodcontent.content)
         return Response(json.dumps({'html':str(foodcontent.content),'msg':'ok'}),content_type='application/json')
 
-#蔬菜分类
-class Vegetablelist(View):
+class Meatslist(View):
     """美食list集合"""
     def dispatch_request(self):
         print('get food home type！')
@@ -62,10 +62,10 @@ class Vegetablelist(View):
             page = int(1)
             per_page = int(8)
             # paginate = Food.query.paginate(page, per_page, error_out=False)
-            paginate = Food.query.filter(Food.food_type==foodtype).order_by(Food.food_date.desc())\
+            paginate = Food.query.filter(Food.food_type=='meat').order_by(Food.food_date.desc())\
                 .paginate(page, per_page, error_out=False)
             foods = paginate.items
-            return render_template('microblog/food/vegetables.html',paginate=paginate,foods=foods)
+            return render_template('microblog/food/meats.html',paginate=paginate,foods=foods)
         else:
             print('传入参数')
             print('the request path is ',request.path)
@@ -77,10 +77,10 @@ class Vegetablelist(View):
             paginate = Food.query.filter(Food.food_type == foodtype).order_by(Food.food_date.desc()) \
                 .paginate(page, per_page, error_out=False)
             foods = paginate.items
-            return render_template('microblog/food/vegetables.html', paginate=paginate, foods=foods)
+            return render_template('microblog/food/meats.html', paginate=paginate, foods=foods)
 
 
-class Vegetabledetail(MethodView):
+class Meatsdetail(MethodView):
     """美食制作详细过程页"""
     def get(self,id):
         return render_template('microblog/fooddetail.html',id=id)
@@ -91,10 +91,8 @@ class Vegetabledetail(MethodView):
         foodcontent = FoodContent.query.filter_by(food_id=id).first()
         print(foodcontent.content)
         return Response(json.dumps({'html':str(foodcontent.content),'msg':'ok'}),content_type='application/json')
-
 #小吃分类
-#蔬菜分类
-class Snacklist(View):
+class Dessertlist(View):
     """美食list集合"""
     def dispatch_request(self):
         print('get food home type！')
@@ -110,7 +108,7 @@ class Snacklist(View):
             paginate = Food.query.filter(Food.food_type==foodtype).order_by(Food.food_date.desc())\
                 .paginate(page, per_page, error_out=False)
             foods = paginate.items
-            return render_template('microblog/food/snack.html',paginate=paginate,foods=foods)
+            return render_template('microblog/food/dessert.html',paginate=paginate,foods=foods)
         else:
             print('传入参数')
             print('the request path is ',request.path)
@@ -122,10 +120,10 @@ class Snacklist(View):
             paginate = Food.query.filter(Food.food_type == foodtype).order_by(Food.food_date.desc()) \
                 .paginate(page, per_page, error_out=False)
             foods = paginate.items
-            return render_template('microblog/food/snack.html', paginate=paginate, foods=foods)
+            return render_template('microblog/food/dessert.html', paginate=paginate, foods=foods)
 
 
-class Snackdetail(MethodView):
+class Dessertdetail(MethodView):
     """美食制作详细过程页"""
     def get(self,id):
         return render_template('microblog/fooddetail.html',id=id)
@@ -137,8 +135,8 @@ class Snackdetail(MethodView):
         print(foodcontent.content)
         return Response(json.dumps({'html':str(foodcontent.content),'msg':'ok'}),content_type='application/json')
 
-#汤类分类
-class Souplist(View):
+#面条分类
+class Noodleslist(View):
     """美食list集合"""
     def dispatch_request(self):
         print('get food home type！')
@@ -154,7 +152,7 @@ class Souplist(View):
             paginate = Food.query.filter(Food.food_type==foodtype).order_by(Food.food_date.desc())\
                 .paginate(page, per_page, error_out=False)
             foods = paginate.items
-            return render_template('microblog/food/soup.html',paginate=paginate,foods=foods)
+            return render_template('microblog/food/noodles.html',paginate=paginate,foods=foods)
         else:
             print('传入参数')
             print('the request path is ',request.path)
@@ -166,10 +164,10 @@ class Souplist(View):
             paginate = Food.query.filter(Food.food_type == foodtype).order_by(Food.food_date.desc()) \
                 .paginate(page, per_page, error_out=False)
             foods = paginate.items
-            return render_template('microblog/food/soup.html', paginate=paginate, foods=foods)
+            return render_template('microblog/food/noodles.html', paginate=paginate, foods=foods)
 
 
-class Soupdetail(MethodView):
+class Noodlesdetail(MethodView):
     """美食制作详细过程页"""
     def get(self,id):
         return render_template('microblog/fooddetail.html',id=id)

@@ -1,34 +1,18 @@
 
 import os
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+from flaskdemo import app
 from flaskdemo.controller.admin import  PictureEdit, Foodedit
 from flaskdemo.controller.contentedit import ContentEdit, ImageUpload, EditeUpload
 from flaskdemo.controller.demo import ShowUsers, JsonTest, JsonData, UserView
 from flaskdemo.controller.entity import createtable, add, delete, update
-from flaskdemo.controller.food import Foodlist, Fooddetail
-from flaskdemo.controller.pictrue import Pictruelist, Picturedetail
+from flaskdemo.controller.food import Foodlist, Fooddetail, Vegetablelist, Snacklist, Snackdetail, Souplist, Soupdetail
+from flaskdemo.controller.meat import Meatlist, Meatdetail, Meatslist, Meatsdetail, Dessertlist, Dessertdetail, \
+    Noodleslist, Noodlesdetail
+from flaskdemo.controller.pictrue import Pictruelist, Picturedetail, Palettelist, Palettedetail
 from flaskdemo.controller.test import Upload,Yulan, Multiple, EditerUplaod
-from flaskdemo.utils.config import UPLOAD_FOLDER, RegexConverter
-from flaskdemo.utils.filters import cut_desc, cut_descs, toStr
+
 
 BASE_DIR = os.path.abspath(os.path.dirname(__name__))
-app = Flask(__name__,static_url_path='')
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://xq:123456@127.0.0.1:3306/designer?charset=utf8"
-# 动态追踪修改设置，如未设置只会提示警告
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-#查询时会显示原始SQL语句
-app.config['SQLALCHEMY_ECHO'] = True
-app.config['SQLALCHEMY_POOL_SIZE'] = 100
-app.config['SQLALCHEMY_MAX_OVERFLOW'] = 20
-
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.url_map.converters['regex'] = RegexConverter
-
-app.add_template_filter(cut_desc,'cut_desc')
-app.add_template_filter(cut_descs,'cut_descs')
-app.add_template_filter(toStr,'string')
-db = SQLAlchemy(app)
 
 
 
@@ -40,10 +24,27 @@ def main():
 
     app.add_url_rule(rule='/', view_func=ShowUsers.as_view('index'))
     app.add_url_rule(rule='/food/home/', view_func=Foodlist.as_view('foodlist'))
+    app.add_url_rule(rule='/food/meat/',view_func=Meatlist.as_view('meatlist'))
+    app.add_url_rule(rule='/food/meats/', view_func=Meatslist.as_view('meatslist'))
+    app.add_url_rule(rule='/food/vegetable/', view_func=Vegetablelist.as_view('vegetablelist'))
+    app.add_url_rule(rule='/food/snack/', view_func=Snacklist.as_view('snacklist'))
+    app.add_url_rule(rule='/food/soup/', view_func=Souplist.as_view('souplist'))
+    app.add_url_rule(rule='/food/dessert/', view_func=Dessertlist.as_view('dessertlist'))
+    app.add_url_rule(rule='/food/noodles/', view_func=Noodleslist.as_view('noodleslist'))
+    app.add_url_rule(rule='/meatdetail/<string:id>',view_func=Meatdetail.as_view('meatdetail'))
+    app.add_url_rule(rule='/meatsdetail/<string:id>', view_func=Meatsdetail.as_view('meatsdetail'))
     app.add_url_rule(rule='/fooddetail/<string:id>', view_func=Fooddetail.as_view('fooddetail'))
+    app.add_url_rule(rule='/vegetabledetail/<string:id>', view_func=Meatdetail.as_view('vegetabledetail'))
+    app.add_url_rule(rule='/snackdetail/<string:id>', view_func=Snackdetail.as_view('snackdetail'))
+    app.add_url_rule(rule='/soupdetail/<string:id>', view_func=Soupdetail.as_view('soupdetail'))
+    app.add_url_rule(rule='/dessertdetail/<string:id>', view_func=Dessertdetail.as_view('dessertdetail'))
+    app.add_url_rule(rule='/noodlesdetail/<string:id>', view_func=Noodlesdetail.as_view('noodlesdetail'))
 
     app.add_url_rule(rule='/picture/cutout/', view_func=Pictruelist.as_view('pictruelist'))
     app.add_url_rule(rule='/picturedetail/<string:id>', view_func=Picturedetail.as_view('picturedetail'))
+    app.add_url_rule(rule='/picture/palette/',view_func=Palettelist.as_view('palettelist'))
+    app.add_url_rule(rule='/palettedetail/<string:id>',view_func=Palettedetail.as_view('palettedetail'))
+
 
     app.add_url_rule(rule='/admin/', view_func=Foodedit.as_view('admin'))
     app.add_url_rule(rule='/pictureedit/', view_func=PictureEdit.as_view('pictureedit'))
@@ -58,6 +59,7 @@ def main():
     app.add_url_rule(rule='/add/', view_func=add.as_view('add'))
     app.add_url_rule(rule='/delete/', view_func=delete.as_view('delate'))
     app.add_url_rule(rule='/update/', view_func=update.as_view('update'))
+
     app.run(debug=True, host='localhost', port=8000)
 
 
