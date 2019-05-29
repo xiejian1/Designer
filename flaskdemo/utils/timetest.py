@@ -1,16 +1,18 @@
 import time
 import datetime
+import re
 def timechuo():
     """打印时间戳"""
 
     print('打印原始时间戳:',time.time())
-    print('打印整形时间戳',int(time.time()))
+    # print('打印整形时间戳',int(time.time()))
 
-    print('打印13位时间戳',int(round(time.time()*10000)))
+    print('打印13位时间戳',int(round(time.time()*1000)))
 def getdatenow():
     """获取系统当前时间"""
     datenow = datetime.datetime.now()
-    print("打印当前时间",datenow)
+    current_time = datetime.datetime.strftime(datenow,"%Y-%m-%d %H:%M:%S")
+    print("打印当前时间",current_time)
 
 def stringdate():
     """将时间格式转换为字符串"""
@@ -28,6 +30,16 @@ def dateTostr():
     print('打印转换后的时间',datenow)
     strdate = datetime.datetime.strftime(datenow,"%Y-%m-%d")
     print('打印转换后的时间',strdate)
+
+def strTodate():
+    """将不规则的时间格式化为贵哦的字符串"""
+    time_data = '2019-5-2612:24:30'
+    calend = re.findall(r'(\d{4}-\d{1,2}-\d{1,2})',time_data)
+    print(calend[0])
+    datenow = datetime.datetime.strptime(calend[0],'%Y-%m-%d')
+    #将字符串转换为日期
+    strdate = datetime.datetime.strftime(datenow,'%Y-%m-%d')
+    print('打印格式化的时间',strdate)
 
 def dateStr():
     """打印年月日形式的数据"""
@@ -131,4 +143,4 @@ if __name__ =="__main__":
     # order = g.breadth_first_search(1)
     # order = g.depth_first_search(1)
     #dateStr()
-    stringdate()
+    getdatenow()

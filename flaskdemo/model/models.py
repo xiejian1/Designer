@@ -1,11 +1,10 @@
 from flask import Flask
-from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import backref
 from werkzeug.security import generate_password_hash,check_password_hash
 #db = SQLAlchemy()
 app = Flask(__name__,static_url_path='')
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://xq:123456@127.0.0.1:3306/flaskdemo?charset=utf8"
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://xq:123456@127.0.0.1:3306/designer?charset=utf8"
 # 动态追踪修改设置，如未设置只会提示警告
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #查询时会显示原始SQL语句
@@ -134,6 +133,6 @@ class PictureContent(ModelBase,db.Model):
     picture_id = db.Column(db.String(32),db.ForeignKey("picture.id"))
 
 if __name__ =="__main__":
-    db.drop_all()
+    # db.drop_all()
     db.create_all()
     app.run(debug=True)

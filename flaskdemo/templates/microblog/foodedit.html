@@ -217,7 +217,7 @@
     }
 </script>
 <script>
-    window.onload = function(){
+     window.onload = function(){
 	var input=document.getElementById("uploadfile");
 	var div;
 	// 当用户上传时触发事件
@@ -228,14 +228,31 @@
 	var readFile=function(obj){
 		// 获取input里面的文件组
 		var fileList=obj.files;
+		var fileTypes = ['jpeg','jpg','gif','png']
 		//对文件组进行遍历，可以到控制台打印出fileList去看看
 		for(var i=0;i<fileList.length;i++){
-		    console.log(fileList[i].size)
+		    console.log(fileList[i]);
+		    console.log(fileList[i].size);
+		    console.log('打印文件格式',fileList[i].name.substring(fileList[i].name.lastIndexOf('.')+1));
+		    var foodtype = fileList[i].name.substring(fileList[i].name.lastIndexOf('.')+1)
+		    var flag = false; //标志位
 		    if(fileList[i].size>2*1024*1024){
-		      alert('图片大小不能大于1M');
+		      alert('图片大小不能大于2M');
 		      $('#uploadfile').val('');
 		      return ;
 		    }
+            for(var i=0;i<fileTypes.length;i++){
+              console.log('进行校验');
+              if(fileTypes[i] == foodtype){
+                flag = true;
+                break;
+              }
+            }
+            if(!flag){
+              alert("上传格式不正确，请重新上传!");
+              $('#uploadfile').val('');
+              return ;
+            }
 		    /*
 			var reader= new FileReader();
 			reader.readAsDataURL(fileList[i]);

@@ -14,7 +14,7 @@ from flaskdemo.utils.filters import cut_desc, cut_descs, toStr
 
 BASE_DIR = os.path.abspath(os.path.dirname(__name__))
 app = Flask(__name__,static_url_path='')
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://xq:123456@127.0.0.1:3306/flaskdemo?charset=utf8"
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://xq:123456@127.0.0.1:3306/designer?charset=utf8"
 # 动态追踪修改设置，如未设置只会提示警告
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #查询时会显示原始SQL语句

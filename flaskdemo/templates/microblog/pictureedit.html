@@ -187,7 +187,8 @@
                           <div class="area"> <span>图片的描述</span> </div>
                            <textarea name="pic_desc"></textarea>
                        </div>
-                       <div class="food_type"><span>图片上传</span> <input  autocomplete="off" required="required" type="file" name="files" multiple=""></div>
+                       <div class="food_type"><span>图片上传</span> <input id="uploadfile" autocomplete="off" type="file" name="files" multiple=""></div>
+                       <div id="img-box"></div>
                   </form>
                </div>
              </div>
@@ -212,5 +213,55 @@
         return false;
       }
     }
+</script>
+<script>
+    window.onload = function(){
+	var input=document.getElementById("uploadfile");
+	var div;
+	// 当用户上传时触发事件
+	input.onchange=function(){
+		readFile(this);
+	}
+	//处理图片并添加都dom中的函数
+	var readFile=function(obj){
+		// 获取input里面的文件组
+		var fileList=obj.files;
+		var fileTypes = ['jpeg','jpg','gif','png']
+		//对文件组进行遍历，可以到控制台打印出fileList去看看
+		for(var i=0;i<fileList.length;i++){
+		    console.log(fileList[i]);
+		    console.log(fileList[i].size);
+		    console.log('打印文件格式',fileList[i].name.substring(fileList[i].name.lastIndexOf('.')+1));
+		    var pictype = fileList[i].name.substring(fileList[i].name.lastIndexOf('.')+1)
+		    var flag = false; //标志位
+		    if(fileList[i].size>2*1024*1024){
+		      alert('图片大小不能大于2M');
+		      $('#uploadfile').val('');
+		      return ;
+		    }
+            for(var i=0;i<fileTypes.length;i++){
+              console.log('进行校验');
+              if(fileTypes[i] == pictype){
+                flag = true;
+                break;
+              }
+            }
+            if(!flag){
+              alert("上传格式不正确，请重新上传!");
+              $('#uploadfile').val('');
+              return ;
+            }
+		    /*
+			var reader= new FileReader();
+			reader.readAsDataURL(fileList[i]);
+			 // 当文件读取成功时执行的函数
+			reader.onload=function(e){
+				div=document.createElement('div');
+				div.innerHTML='<img src="'+this.result+'" />';
+				document.getElementById("img-box").appendChild(div);
+			}*/
+		}
+	}
+ }
 </script>
 {% endblock  %}
