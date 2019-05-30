@@ -8,7 +8,8 @@ from flaskdemo.controller.entity import createtable, add, delete, update
 from flaskdemo.controller.food import Foodlist, Fooddetail, Vegetablelist, Snacklist, Snackdetail, Souplist, Soupdetail
 from flaskdemo.controller.meat import Meatlist, Meatdetail, Meatslist, Meatsdetail, Dessertlist, Dessertdetail, \
     Noodleslist, Noodlesdetail
-from flaskdemo.controller.pictrue import Pictruelist, Picturedetail, Palettelist, Palettedetail
+from flaskdemo.controller.pictrue import Pictruelist, Picturedetail, Palettelist, Palettedetail, Finishinglist, \
+    Finishingdetail, Photographylist, Photographydetail, Illustrationlist, Illustrationdetail
 from flaskdemo.controller.test import Upload,Yulan, Multiple, EditerUplaod
 
 
@@ -44,7 +45,12 @@ def main():
     app.add_url_rule(rule='/picturedetail/<string:id>', view_func=Picturedetail.as_view('picturedetail'))
     app.add_url_rule(rule='/picture/palette/',view_func=Palettelist.as_view('palettelist'))
     app.add_url_rule(rule='/palettedetail/<string:id>',view_func=Palettedetail.as_view('palettedetail'))
-
+    app.add_url_rule(rule='/picture/finishing/', view_func=Finishinglist.as_view('finishinglist'))
+    app.add_url_rule(rule='/finishingdetail/<string:id>', view_func=Finishingdetail.as_view('finishingdetail'))
+    app.add_url_rule(rule='/picture/photography/', view_func=Photographylist.as_view('photographylist'))
+    app.add_url_rule(rule='/photographydetail/<string:id>', view_func=Photographydetail.as_view('photographydetail'))
+    app.add_url_rule(rule='/picture/illustration/', view_func=Illustrationlist.as_view('illustrationlist'))
+    app.add_url_rule(rule='/illustrationdetail/<string:id>', view_func=Illustrationdetail.as_view('illustrationdetail'))
 
     app.add_url_rule(rule='/admin/', view_func=Foodedit.as_view('admin'))
     app.add_url_rule(rule='/pictureedit/', view_func=PictureEdit.as_view('pictureedit'))
