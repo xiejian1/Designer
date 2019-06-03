@@ -1,0 +1,159 @@
+{% extends 'microblog/picture.html'%}
+{% block style %}
+<style>
+ .lists{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+ }
+ .items{
+   min-height:330px;
+   padding-top:10px;
+   border: 1px solid rgb(189,204,238);
+   box-shadow:1px 0 1px rgb(168,188,236),
+                 -1px 0 1px rgb(168,188,236),
+                 0px 1px 1px rgb(168,188,236),
+                 0px -1px 1px rgb(168,188,236);
+   margin-top:5px;
+   margin-bottom:5px;
+ }
+.item h4,p{
+  text-align:center;
+  margin:0;
+}
+.item h4{
+   font-size:18px;
+   font-family:Microsoft Yahei;
+   color:red;
+}
+.item p{
+   padding-top:5px;
+   font-size:16px;
+   font-family:SimSun ;
+}
+.item_img{
+  padding:5px 0px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+}
+.item_img img{
+  padding:1px 1px;
+}
+.content{
+  margin-top:3px;
+}
+.content p{
+  margin:0px;
+}
+.button{
+  text-align:center;
+  margin-bottom:3px;
+  margin-top:3px;
+}
+.button a{
+  text-decoration:none;
+  color:red;
+}
+.button span{
+  height:25px;
+  width:100px;
+  border:1px solid rgb(241,88,67);
+  border-radius:5px;
+}
+ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+ul.pagination li {display: inline;}
+ul.pagination li a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+ul.pagination li a.active {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+}
+ul.pagination li a:hover:not(.active) {background-color: #3071ea;}
+.disabled{
+  display:none;
+}
+</style>
+{% endblock %}
+{% block food %}
+ <div class="lists">
+   {% if pictures %}
+       {% for picture in pictures %}
+           <div class="item">
+               <h4>{{picture.pic_title}}</h4>
+               {% if picture.pic_abstract %}
+                 <p>{{ picture.pic_abstract}}</p>
+               {% endif %}
+               <div class="item_img">
+                   {% for pic in picture.picturepic %}
+                   {% if not loop.first %}{% endif %}
+                     <img src="{{pic.pic_url}}">
+                   {% endfor %}
+               </div>
+               <div class="content">
+                   {% if desc|length > 50 %}
+                   <p>
+                       {{ picture.pic_desc|cut_desc}}
+                   </p>
+                   <p>
+                       {{picture.pic_desc|cut_descs}}
+                   </p>
+                   {% else %}
+                     <p>
+                         {{picture.pic_desc}}
+                     </p>
+                   {% endif %}
+               </div>
+               <div class="button">
+                       <a href="/fontdetail/{{ picture.id }}">&#8594;<span>点击查看详细</span></a>
+               </div>
+           </div>
+       {% endfor %}
+       {% endif %}
+       <!--分页设置-->
+       {% if pictures|length >= paginate.per_page %}
+               <div >
+                    <ul class="pagination">
+                        {% if paginate.has_prev %}
+                          <li>
+                              <a href='{% if paginate.has_prev %}{{url_for("fontlist",page=paginate.pre_num)}}{% else %}#{% endif %}'>«</a>
+                          </li>
+                        {% endif %}
+                        {% for p in paginate.iter_pages() %}
+                             {% if p %}
+                                {% if p == paginate.page%}
+                                  <li><a href='{{ url_for("fontlist",page=p) }}' class="active">{{p}}</a></li>
+                                {% else %}
+                                  <li><a  href='{{url_for("fontlist",page=p)}}'>{{p}}</a></li>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        {%if  paginate.has_next %}
+                            <li >
+                                <a href='{% if paginate.has_next %}{{url_for("fontlist",page=paginate.next_num)}}{% else %}#{% endif %}'>»</a>
+                            </li>
+                        {% endif  %}
+                    </ul>
+               </div>
+       {% endif %}
+ </div>
+{% endblock %}
+{% block script %}
+<script src="/js/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+       $('#fontdesign').addClass('active')
+    });
+</script>
+{% endblock %}

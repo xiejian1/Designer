@@ -5,11 +5,13 @@ from flaskdemo.controller.admin import  PictureEdit, Foodedit
 from flaskdemo.controller.contentedit import ContentEdit, ImageUpload, EditeUpload
 from flaskdemo.controller.demo import ShowUsers, JsonTest, JsonData, UserView
 from flaskdemo.controller.entity import createtable, add, delete, update
+from flaskdemo.controller.font import Fontlist, Fontdetail, Logolist, Logodetail
 from flaskdemo.controller.food import Foodlist, Fooddetail, Vegetablelist, Snacklist, Snackdetail, Souplist, Soupdetail
 from flaskdemo.controller.meat import Meatlist, Meatdetail, Meatslist, Meatsdetail, Dessertlist, Dessertdetail, \
     Noodleslist, Noodlesdetail
 from flaskdemo.controller.pictrue import Pictruelist, Picturedetail, Palettelist, Palettedetail, Finishinglist, \
-    Finishingdetail, Photographylist, Photographydetail, Illustrationlist, Illustrationdetail
+    Finishingdetail, Photographylist, Photographydetail, Illustrationlist, Illustrationdetail, Artistlist, Artistdetail, \
+    Posterslist, Postersdetail
 from flaskdemo.controller.test import Upload,Yulan, Multiple, EditerUplaod
 
 
@@ -51,6 +53,14 @@ def main():
     app.add_url_rule(rule='/photographydetail/<string:id>', view_func=Photographydetail.as_view('photographydetail'))
     app.add_url_rule(rule='/picture/illustration/', view_func=Illustrationlist.as_view('illustrationlist'))
     app.add_url_rule(rule='/illustrationdetail/<string:id>', view_func=Illustrationdetail.as_view('illustrationdetail'))
+    app.add_url_rule(rule='/picture/artist/', view_func=Artistlist.as_view('artistlist'))
+    app.add_url_rule(rule='/artistdetail/<string:id>', view_func=Artistdetail.as_view('artistdetail'))
+    app.add_url_rule(rule='/picture/posters/', view_func=Posterslist.as_view('posterslist'))
+    app.add_url_rule(rule='/postersdetail/<string:id>', view_func=Postersdetail.as_view('postersdetail'))
+    app.add_url_rule(rule='/picture/font/', view_func=Fontlist.as_view('fontlist'))
+    app.add_url_rule(rule='/fontdetail/<string:id>', view_func=Fontdetail.as_view('fontdetail'))
+    app.add_url_rule(rule='/picture/logo/', view_func=Logolist.as_view('logolist'))
+    app.add_url_rule(rule='/logodetail/<string:id>', view_func=Logodetail.as_view('logodetail'))
 
     app.add_url_rule(rule='/admin/', view_func=Foodedit.as_view('admin'))
     app.add_url_rule(rule='/pictureedit/', view_func=PictureEdit.as_view('pictureedit'))

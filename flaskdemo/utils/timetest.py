@@ -143,4 +143,4 @@ if __name__ =="__main__":
     # order = g.breadth_first_search(1)
     # order = g.depth_first_search(1)
     #dateStr()
-    getdatenow()
+    strTodate()

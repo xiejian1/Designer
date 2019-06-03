@@ -40,5 +40,5 @@ class Elastic():
 
 if __name__ =="__main__":
     obj = Elastic(index='cqcyit_v3',doctype='tender')
-    id = '18dd62877d46adfd40a485aa1a74881cdc3ec506'
+    id = '085c54bfc53743c50d6ded6b86090ef81814afe2'
     obj.getdataBybody(id=id)
