@@ -1,5 +1,5 @@
 from flask import render_template
-from flaskdemo.flask_demo import app
+from flask_demo import app
 @app.route('/')
 def index():
     return "Hello Flask!"
