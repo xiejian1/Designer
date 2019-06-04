@@ -18,6 +18,7 @@ def create_app():
     app.config['SQLALCHEMY_POOL_SIZE'] = 100
     app.config['SQLALCHEMY_MAX_OVERFLOW'] = 20
 
+
     app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
     app.url_map.converters['regex'] = RegexConverter
 

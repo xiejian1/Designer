@@ -6,7 +6,7 @@ class Elastic():
         self.index = index
         self.doctype = doctype
 
-        self.es = Elasticsearch(['139.9.81.44'],http_auth=('elastic', 'MuQEX6bhnuJ6c9SxbtUP'),port=9200)
+        self.es = Elasticsearch(['localhost'],http_auth=('smallqiang', 'MuQEX6bhnuJ6c123Xd'),port=9200)
     def conn(self):
         """对elasticseach进行连接"""
         return self.es
@@ -40,5 +40,5 @@ class Elastic():
 
 if __name__ =="__main__":
     obj = Elastic(index='cqcyit_v3',doctype='tender')
-    id = '085c54bfc53743c50d6ded6b86090ef81814afe2'
-    obj.getdataBybody(id=id)
+    id = 'f690da2627f78f87edc7ccf1f63ff9f68a427a8f'
+    obj.deleteById(id=id)

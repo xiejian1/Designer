@@ -10,6 +10,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #查询时会显示原始SQL语句
 app.config['SQLALCHEMY_ECHO'] = True
 db = SQLAlchemy(app)
+
 #数据库操作基本类
 class ModelBase:
     # 添加一条数据
