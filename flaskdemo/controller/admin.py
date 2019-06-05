@@ -39,6 +39,7 @@ class Foodedit(MethodView):
 
                 filename = secure_filename(file.filename)
                 print('打印文件的名字', filename)
+                print('打印文件的路径',UPLOAD_FOLDER)
                 filepath = os.path.join(UPLOAD_FOLDER, filename)
                 file.save(filepath)
                 picurl = '/img/upload/'+filename

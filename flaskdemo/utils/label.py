@@ -1,15 +1,23 @@
 
 foodtype = [
+    'home',
     'meat',
     'vegetable',
     'snack',
-    'sweete'
+    'soup',
+    'noodles',
+    'meats',
+    'dessert'
+
 ]
 pictype = [
     'cutout',
-    'toning',
-    'turing',
-    'compose',
+    'palette',
+    'finishing',
+    'photography',
+    'illustration',
+    'artist',
+    'posters',
     'font',
     'logo'
 ]

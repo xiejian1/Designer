@@ -89,6 +89,7 @@ class Logodetail(MethodView):
     def get(self,id):
         print('print the url',request.url)
         print('print the path',request.path)
+        print('打印远程的ip地址',request.remote_addr)
         return render_template('microblog/picturedetail.html',id=id)
 
     def post(self,id):

@@ -3,10 +3,11 @@ import os
 from flaskdemo import create_app
 from flaskdemo.controller.admin import  PictureEdit, Foodedit
 from flaskdemo.controller.contentedit import ContentEdit, ImageUpload, EditeUpload
-from flaskdemo.controller.demo import ShowUsers, JsonTest, JsonData, UserView
+from flaskdemo.controller.demo import JsonTest, JsonData, UserView
 from flaskdemo.controller.entity import createtable, add, delete, update
 from flaskdemo.controller.font import Fontlist, Fontdetail, Logolist, Logodetail
 from flaskdemo.controller.food import Foodlist, Fooddetail, Vegetablelist, Snacklist, Snackdetail, Souplist, Soupdetail
+from flaskdemo.controller.index import ShowUsers
 from flaskdemo.controller.meat import Meatlist, Meatdetail, Meatslist, Meatsdetail, Dessertlist, Dessertdetail, \
     Noodleslist, Noodlesdetail
 from flaskdemo.controller.pictrue import Pictruelist, Picturedetail, Palettelist, Palettedetail, Finishinglist, \

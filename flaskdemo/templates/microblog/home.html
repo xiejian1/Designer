@@ -51,7 +51,7 @@
     .button{
       text-align:center;
       margin-bottom:3px;
-      margin-top:3px;
+      margin-top:5px;
     }
     .button a{
       text-decoration:none;
@@ -105,10 +105,14 @@ ul.pagination li a:hover:not(.active) {background-color: #3071ea;}
                    {% endfor %}
                </div>
                <div class="content">
+                   {% if food.food_desc|length > 50 %}
                    <p>
                        {{food.food_desc|cut_desc}}
                    </p>
                    <p>{{food.food_desc|cut_descs}}...</p>
+                   {% else %}
+                   <p>{{food.food_desc|cut_desc}}</p>
+                   {% endif %}
                </div>
                <div class="button">
                        <a href="/fooddetail/{{ food.id }}">&#8594;<span>点击查看详细</span></a>

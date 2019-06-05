@@ -11,6 +11,7 @@ class Foodlist(View):
     def dispatch_request(self):
         print('get food home type！')
         print('the request url is ',request.url)
+        print('获取远程的ip地址',request.remote_addr)
         if not 'page' in request.args:
             print('默认不传参数')
             print('the request path is ', request.path)
@@ -143,6 +144,7 @@ class Souplist(View):
     def dispatch_request(self):
         print('get food home type！')
         print('the request url is ',request.url)
+        print('获取远程的ip地址',request.remote_addr)
         if not 'page' in request.args:
             print('默认不传参数')
             print('the request path is ', request.path)

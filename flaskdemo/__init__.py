@@ -6,8 +6,11 @@ from flask_sqlalchemy import SQLAlchemy
 
 
 #工程函数
+from flaskdemo.utils.config import UPLOAD_FOLDER
+
+
 def create_app():
-    from flaskdemo.utils.config import UPLOAD_FOLDER, RegexConverter
+    from flaskdemo.utils.config import RegexConverter
     from flaskdemo.utils.filters import cut_desc, cut_descs, toStr
     app = Flask(__name__, static_url_path='')
     app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://xq:123456@127.0.0.1:3306/designer?charset=utf8"

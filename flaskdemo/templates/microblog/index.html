@@ -24,17 +24,20 @@
                          <a href="/food/home/"><span>更多&#62;&#62;</span></a>
                      </div>
                      <div class="food-bottom">
-                         <div class="food_img">
-                             <a href="/fooddetail/" ><img src="/img/food/food.jpg">
-                               <span style="display:block;">剁椒鱼头美食，开启你的美食之旅...</span>
-                             </a>
-                         </div>
-                         <div class="food_img"><a href="/fooddetail/"><img src="/img/food/niurou.jpg">
-                               <span style="display:block;">牛肉美食，开启你的美食之旅...</span>
-                         </a></div>
-                         <div class="food_img"><a href="/fooddetail/"><img src="/img/food/fensi.jpg">
-                               <span style="display:block;">粉丝美食，开启你的美食之旅...</span>
-                         </a></div>
+                         {% if foods %}
+                           {% for food in foods %}
+                             <div class="food_img">
+                                 <a href="/fooddetail/{{food.id}}" >
+                                      {% for pic in food.foodpic %}
+                                        <img height="300" width="200" src="{{ pic.pic_url }}">
+                                      {% endfor %}
+                                   <span style="display:block;">{{food.food_title}}开启你的美食之旅...</span>
+                                 </a>
+                             </div>
+                           {% endfor %}
+                         {% else %}
+                         <p>内容更新中，敬请期待</p>
+                         {% endif %}
                      </div>
                  </div>
                  <div class="picture">
@@ -43,16 +46,19 @@
                          <a href="/picture/cutout/"><span>更多&#62;&#62;</span></a>
                      </div>
                      <div class="food-bottom">
-                         <div class="food_img"><a href="/picturedetail/"><img src="/img/picture/picture.jpg">
-                           <span style="display:block;">风景图片精修，开启你的旅行之旅...</span>
-                         </a></div>
-                         <div class="food_img"><a href="/picturedetail/"><img src="/img/picture/jingxiu.jpg">
-                           <span style="display:block;">摄影后期修图，开启你的旅游之旅...</span>
-                         </a></div>
-                         <div class="food_img"><a href="/picturedetail/">
-                             <img src="/img/picture/fengjing.jpg">
-                           <span style="display:block;">创意设计，开启你的创意之旅...</span>
-                         </a></div>
+                         {% if pictures %}
+                          {% for picture in pictures %}
+                             <div class="food_img">
+                                 <a href="/picturedetail/{{picture.id}}">
+                                     {% for pic in picture.picturepic %}
+                                     <img width="200" height="330" src="{{pic.pic_url}}">
+                                     {% endfor %}
+                               <span style="display:block;">{{picture.pic_title}}，开启你的设计之旅...</span>
+                             </a></div>
+                         {% endfor %}
+                         {% else %}
+                            <p style="color:red;text-align:center">内容更新中，敬请期待....</p>
+                         {% endif %}
                      </div>
                  </div>
              </div>

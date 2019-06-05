@@ -2,8 +2,8 @@ import os
 
 from werkzeug.routing import BaseConverter
 
-BASE_DIR = os.path.abspath(os.path.dirname(os.path.dirname(__name__)))
-UPLOAD_FOLDER = os.path.join(BASE_DIR,'static/img/upload/')
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+UPLOAD_FOLDER = os.path.abspath(os.path.join(BASE_DIR,'static/img/upload/'))
 
 
 # 2、自定义类
