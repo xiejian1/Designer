@@ -29,9 +29,9 @@
                              <div class="food_img">
                                  <a href="/fooddetail/{{food.id}}" >
                                       {% for pic in food.foodpic %}
-                                        <img height="300" width="200" src="{{ pic.pic_url }}">
+                                        <img height="250" src="{{ pic.pic_url }}">
                                       {% endfor %}
-                                   <span style="display:block;">{{food.food_title}}开启你的美食之旅...</span>
+                                   <span style="display:block;">{{food.food_title}},开启你的美食之旅...</span>
                                  </a>
                              </div>
                            {% endfor %}
@@ -51,9 +51,9 @@
                              <div class="food_img">
                                  <a href="/picturedetail/{{picture.id}}">
                                      {% for pic in picture.picturepic %}
-                                     <img width="200" height="330" src="{{pic.pic_url}}">
+                                     <img height="250" src="{{pic.pic_url}}">
                                      {% endfor %}
-                               <span style="display:block;">{{picture.pic_title}}，开启你的设计之旅...</span>
+                               <span style="display:block;">{{picture.pic_title}},开启你的设计之旅...</span>
                              </a></div>
                          {% endfor %}
                          {% else %}
