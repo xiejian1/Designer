@@ -188,8 +188,8 @@
                           <div class="area"> <span>美食的描述</span> </div>
                            <textarea name="food_desc"></textarea>
                        </div>
-                       <div class="food_type"><span>美食图片</span> <input autocomplete="off" id="uploadfile" accept="image/*" required="required" type="file" name="files" multiple=""></div>
-                       <div id="img-box"></div>
+                       <div class="food_type"><span>美食图片</span> <input autocomplete="off" id="uploadfile" accept="image/gif,image/jpeg,image/jpg,image/png" required="required" type="file" name="files" multiple=""></div>
+                       <div id="img-box" style="padding-left:5px;"></div>
                   </form>
                </div>
              </div>
@@ -217,7 +217,7 @@
     }
 </script>
 <script>
-     window.onload = function(){
+ window.onload = function(){
 	var input=document.getElementById("uploadfile");
 	var div;
 	// 当用户上传时触发事件
@@ -236,34 +236,65 @@
 		    console.log('打印文件格式',fileList[i].name.substring(fileList[i].name.lastIndexOf('.')+1));
 		    var foodtype = fileList[i].name.substring(fileList[i].name.lastIndexOf('.')+1)
 		    var flag = false; //标志位
+
 		    if(fileList[i].size>2*1024*1024){
 		      alert('图片大小不能大于2M');
 		      $('#uploadfile').val('');
 		      return ;
 		    }
-            for(var i=0;i<fileTypes.length;i++){
+            var reader= new FileReader();
+			reader.readAsDataURL(fileList[i]);
+			 // 当文件读取成功时执行的函数
+			reader.onload=function(e){
+				div=document.createElement('div');
+				div.innerHTML='<img src="'+this.result+'"/>';
+				document.getElementById("img-box").appendChild(div);
+
+				var img = div.getElementsByTagName('img')[0];
+                img.onload = function(){
+                    var nowHeight = ReSizePic(this); //设置图片大小
+                    this.parentNode.style.display = 'block';
+                    var oParent = this.parentNode;
+                    if(nowHeight){
+                        oParent.style.paddingTop = (oParent.offsetHeight - nowHeight)/2 + 'px';
+                    }
+                }
+			}
+            for(var j=0;j<fileTypes.length;j++){
               console.log('进行校验');
-              if(fileTypes[i] == foodtype){
+              if(fileTypes[j] == foodtype){
                 flag = true;
                 break;
+              }else{
+                console.log('get the next !');
+                continue;
               }
             }
             if(!flag){
               alert("上传格式不正确，请重新上传!");
               $('#uploadfile').val('');
+               $('#img-box').children().remove();
               return ;
             }
-		    /*
-			var reader= new FileReader();
-			reader.readAsDataURL(fileList[i]);
-			 // 当文件读取成功时执行的函数
-			reader.onload=function(e){
-				div=document.createElement('div');
-				div.innerHTML='<img src="'+this.result+'" />';
-				document.getElementById("img-box").appendChild(div);
-			}*/
 		}
 	}
+ }
+ function ReSizePic(ThisPic) {
+    var RePicWidth = 200; //这里修改为您想显示的宽度值
+    var TrueWidth = ThisPic.width; //图片实际宽度
+    var TrueHeight = ThisPic.height; //图片实际高度
+    if(TrueWidth>TrueHeight){
+        //宽大于高
+        var reWidth = RePicWidth;
+        ThisPic.width = reWidth;
+        //垂直居中
+        var nowHeight = TrueHeight * (reWidth/TrueWidth);
+        return nowHeight;  //将图片修改后的高度返回，供垂直居中用
+    }else{
+        //宽小于高
+        var reHeight = RePicWidth;
+        ThisPic.height = reHeight;
+    }
  }
 </script>
 {% endblock  %}

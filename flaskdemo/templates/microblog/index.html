@@ -28,10 +28,10 @@
                            {% for food in foods %}
                              <div class="food_img">
                                  <a href="/fooddetail/{{food.id}}" >
-                                      {% for pic in food.foodpic %}
-                                        <img height="250" src="{{ pic.pic_url }}">
-                                      {% endfor %}
-                                   <span style="display:block;">{{food.food_title}},开启你的美食之旅...</span>
+                                     {% for pic in food.foodpic %}
+                                       <img height="200" src="{{ pic.pic_url }}">
+                                     {% endfor %}
+                                   <span style="display:block;">{{food.food_title}},开启美食之旅...</span>
                                  </a>
                              </div>
                            {% endfor %}
@@ -51,9 +51,9 @@
                              <div class="food_img">
                                  <a href="/picturedetail/{{picture.id}}">
                                      {% for pic in picture.picturepic %}
-                                     <img height="250" src="{{pic.pic_url}}">
+                                        <img height="200" src="{{ pic.pic_url}}">
                                      {% endfor %}
-                               <span style="display:block;">{{picture.pic_title}},开启你的设计之旅...</span>
+                               <span style="display:block;">{{picture.pic_title}},开启设计之旅...</span>
                              </a></div>
                          {% endfor %}
                          {% else %}
@@ -69,7 +69,7 @@
     <script src="/js/jquery.min.js"></script>
     <script src="/js/slick.min.js"></script>
     <script>
-       $(function(){
+      $(function(){
       $(".slick").slick({
         dots: true,
         infinite: true,

@@ -35,18 +35,13 @@ class Foodedit(MethodView):
         files = request.files.getlist("files")
         for file in files:
             if file and allowed_file(file.filename):
-
-
                 filename = secure_filename(file.filename)
-                print('打印文件的名字', filename)
-                print('打印文件的路径',UPLOAD_FOLDER)
+                print('打印文件的名字',filename)
                 filepath = os.path.join(UPLOAD_FOLDER, filename)
                 file.save(filepath)
-                picurl = '/img/upload/'+filename
+                picurl = '/img/upload/' + filename
                 food_pics.append(picurl)
-                print('打印图片路径',food_pics)
-            else:
-                return 'hello  world!'
+                print('打印图片路径', food_pics)
 
         food = Food()
         food.id = id
