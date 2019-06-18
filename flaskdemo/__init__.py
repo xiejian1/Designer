@@ -7,6 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 #工程函数
 from flaskdemo.utils.config import UPLOAD_FOLDER
+from flaskdemo.utils.filters import lovecount, commentcount
 
 
 def create_app():
@@ -28,8 +29,9 @@ def create_app():
     app.add_template_filter(cut_desc, 'cut_desc')
     app.add_template_filter(cut_descs, 'cut_descs')
     app.add_template_filter(toStr, 'string')
+    app.add_template_filter(lovecount, 'lovecount')
+    app.add_template_filter(commentcount, 'commentcount')
     db = SQLAlchemy(app)
-
     return app
 
 # #

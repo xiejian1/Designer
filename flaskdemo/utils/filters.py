@@ -13,3 +13,13 @@ def cut_descs(desc):
 def toStr(content):
     """将数据转换为字符串"""
     return str(content)
+
+def lovecount(Love):
+    """查询关注点数量"""
+    count = Love.count()
+    return count
+
+def commentcount(Comment):
+    """查询评论的总数"""
+    count = Comment.count()
+    return count

@@ -1,17 +1,16 @@
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+
+
 from sqlalchemy.orm import backref
 from werkzeug.security import generate_password_hash,check_password_hash
-#db = SQLAlchemy()
-app = Flask(__name__,static_url_path='')
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://xq:123456@127.0.0.1:3306/designer?charset=utf8"
-# 动态追踪修改设置，如未设置只会提示警告
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-#查询时会显示原始SQL语句
-app.config['SQLALCHEMY_ECHO'] = True
-db = SQLAlchemy(app)
+
+
 
 #数据库操作基本类
+from flaskdemo import create_app
+from flaskdemo.model.exts import db
+# from flask_sqlalchemy import SQLAlchemy
+app = create_app()
+# db = SQLAlchemy(app)
 class ModelBase:
     # 添加一条数据
     def save(self):
@@ -87,15 +86,17 @@ class Food(ModelBase,db.Model):
     food_abstract = db.Column(db.String(200))
     food_date = db.Column(db.Date,nullable=True)
     # 创建关系属性  relationship("关联的类名", backref="对方表查询关联数据时的属性名")
-    foodpic = db.relationship("FoodPic",backref='food',lazy='dynamic')
-    foodcontent = db.relationship("FoodContent",backref=backref("food", uselist=False))
+    foodpic = db.relationship("FoodPic",backref='food',lazy='dynamic',cascade='all,delete-orphan', passive_deletes = True)
+    foodcontent = db.relationship("FoodContent",backref=backref("food", uselist=False),lazy="dynamic",cascade='all,delete-orphan', passive_deletes = True)
+    foodlove = db.relationship("FoodLove",backref="food",lazy="dynamic",cascade='all,delete-orphan', passive_deletes = True)
+    foodcomment = db.relationship("FoodComment",backref="food",lazy="dynamic",cascade='all,delete-orphan', passive_deletes = True)
 
 class FoodPic(ModelBase,db.Model):
     """美食图片保存"""
     __tablename__ = 'foodpic'
     id = db.Column(db.Integer,primary_key=True,autoincrement=True)
     pic_url = db.Column(db.String(50),nullable=True)
-    food_id = db.Column(db.String(32),db.ForeignKey("food.id"))
+    food_id = db.Column(db.String(32),db.ForeignKey("food.id",ondelete='CASCADE'))
 
 
 class FoodContent(ModelBase,db.Model):
@@ -103,7 +104,27 @@ class FoodContent(ModelBase,db.Model):
     __tablename__ ="foodcontent"
     id = db.Column(db.Integer,autoincrement=True, primary_key=True)
     content = db.Column(db.Text,nullable=True)
-    food_id = db.Column(db.String(32),db.ForeignKey("food.id"))
+    food_id = db.Column(db.String(32),db.ForeignKey("food.id",ondelete='CASCADE'))
+
+class FoodLove(ModelBase,db.Model):
+    """点击关注"""
+    __tablename__="foodlove"
+    id = db.Column(db.Integer,autoincrement=True,primary_key=True)
+    remote_addr = db.Column(db.String(32),nullable=True)
+    love_time = db.Column(db.Date,nullable=True)
+    food_id = db.Column(db.String(32),db.ForeignKey("food.id",ondelete='CASCADE'))
+
+class FoodComment(ModelBase,db.Model):
+    """评论"""
+    __tablename__="foodcomment"
+    id = db.Column(db.Integer,autoincrement = True,primary_key = True)
+    remote_addr = db.Column(db.String(32),nullable=True)
+    commnent_content = db.Column(db.String(500),nullable=True)
+    commnet_time = db.Column(db.Date,nullable=True)
+    qq = db.Column(db.String(30),nullable=True)
+    qqname = db.Column(db.String(50),nullable=True)
+    food_id = db.Column(db.String(32),db.ForeignKey("food.id",ondelete='CASCADE'))
+
 
 class Picture(ModelBase,db.Model):
     """美食数据模型"""
@@ -115,15 +136,21 @@ class Picture(ModelBase,db.Model):
     pic_desc = db.Column(db.String(500))
     pic_date = db.Column(db.Date, nullable=True)
     # 创建关系属性  relationship("关联的类名", backref="对方表查询关联数据时的属性名")
-    picturepic = db.relationship("PicturePic",backref='picture',lazy='dynamic')
-    picturecontent = db.relationship("PictureContent",backref=backref("picture", uselist=False))
+    picturepic = db.relationship("PicturePic",backref='picture',lazy='dynamic',cascade='all,delete-orphan',
+                               passive_deletes=True)
+    picturecontent = db.relationship("PictureContent",backref=backref("picture",uselist=False),cascade='all,delete-orphan',
+                               passive_deletes=True)
+    picturelove = db.relationship("PictureLove", backref="picture", lazy="dynamic",cascade='all,delete-orphan',
+                               passive_deletes=True)
+    picturecomment = db.relationship("PictureComment", backref="picture", lazy="dynamic",cascade='all,delete-orphan',
+                                  passive_deletes=True)
 
 class PicturePic(ModelBase,db.Model):
     """美食图片保存"""
     __tablename__ = 'picturepic'
     id = db.Column(db.Integer,primary_key=True,autoincrement=True)
     pic_url = db.Column(db.String(50),nullable=True)
-    picture_id = db.Column(db.String(32),db.ForeignKey("picture.id"))
+    picture_id = db.Column(db.String(32),db.ForeignKey("picture.id",ondelete='CASCADE'))
 
 
 class PictureContent(ModelBase,db.Model):
@@ -131,7 +158,28 @@ class PictureContent(ModelBase,db.Model):
     __tablename__ ="picturecontent"
     id = db.Column(db.Integer,autoincrement=True, primary_key=True)
     content = db.Column(db.Text,nullable=True)
-    picture_id = db.Column(db.String(32),db.ForeignKey("picture.id"))
+    picture_id = db.Column(db.String(32),db.ForeignKey("picture.id",ondelete='CASCADE'))
+
+class PictureLove(ModelBase,db.Model):
+    """点击关注"""
+    __tablename__="picturelove"
+    id = db.Column(db.Integer,autoincrement=True,primary_key=True)
+    remote_addr = db.Column(db.String(32),nullable=True)
+    picture_time = db.Column(db.Date,nullable=True)
+    remote_area = db.Column(db.String(32),nullable=True)
+    picture_id = db.Column(db.String(32),db.ForeignKey("picture.id",ondelete='CASCADE'))
+
+class PictureComment(ModelBase,db.Model):
+    """评论"""
+    __tablename__="picturecomment"
+    id = db.Column(db.Integer,autoincrement = True,primary_key = True)
+    remote_addr = db.Column(db.String(32),nullable=True)
+    commnent_content = db.Column(db.String(500),nullable=True)
+    commnet_time = db.Column(db.Date,nullable=True)
+    qq = db.Column(db.String(30),nullable=True)
+    qqname = db.Column(db.String(50),nullable=True)
+    picture_id = db.Column(db.String(32),db.ForeignKey("picture.id",ondelete='CASCADE'))
+
 
 if __name__ =="__main__":
     # db.drop_all()

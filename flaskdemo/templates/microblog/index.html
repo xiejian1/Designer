@@ -5,7 +5,7 @@
 
 {% endblock %}
 {% block body %}
-  <div >
+  <div>
              <!--轮播图设计-->
              <div class="caroul">
                 <div class="slick" data-slick='{"slidesToShow": 2, "slidesToScroll": 2}'>
@@ -31,7 +31,7 @@
                                      {% for pic in food.foodpic %}
                                        <img height="200" src="{{ pic.pic_url }}">
                                      {% endfor %}
-                                   <span style="display:block;">{{food.food_title}},开启美食之旅...</span>
+                                   <span style="display:block;opacity:0.9;">{{food.food_title}},开启美食之旅...</span>
                                  </a>
                              </div>
                            {% endfor %}
@@ -53,7 +53,7 @@
                                      {% for pic in picture.picturepic %}
                                         <img height="200" src="{{ pic.pic_url}}">
                                      {% endfor %}
-                               <span style="display:block;">{{picture.pic_title}},开启设计之旅...</span>
+                               <span style="display:block;opacity:0.9;">{{picture.pic_title}},开启设计之旅...</span>
                              </a></div>
                          {% endfor %}
                          {% else %}

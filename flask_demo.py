@@ -1,5 +1,6 @@
 
 import os
+
 from flaskdemo import create_app
 from flaskdemo.controller.admin import  PictureEdit, Foodedit
 from flaskdemo.controller.contentedit import ContentEdit, ImageUpload, EditeUpload
@@ -8,6 +9,7 @@ from flaskdemo.controller.entity import createtable, add, delete, update
 from flaskdemo.controller.font import Fontlist, Fontdetail, Logolist, Logodetail
 from flaskdemo.controller.food import Foodlist, Fooddetail, Vegetablelist, Snacklist, Snackdetail, Souplist, Soupdetail
 from flaskdemo.controller.index import ShowUsers
+from flaskdemo.controller.love import AddLove, DelLove
 from flaskdemo.controller.meat import Meatlist, Meatdetail, Meatslist, Meatsdetail, Dessertlist, Dessertdetail, \
     Noodleslist, Noodlesdetail
 from flaskdemo.controller.pictrue import Pictruelist, Picturedetail, Palettelist, Palettedetail, Finishinglist, \
@@ -63,6 +65,8 @@ def main():
     app.add_url_rule(rule='/picture/logo/', view_func=Logolist.as_view('logolist'))
     app.add_url_rule(rule='/logodetail/<string:id>', view_func=Logodetail.as_view('logodetail'))
 
+    app.add_url_rule(rule='/picture/addlove/',view_func=AddLove.as_view('addlove'))
+    app.add_url_rule(rule='/picture/dellove/<string:loveid>/',view_func=DelLove.as_view('dellove'))
     app.add_url_rule(rule='/admin/', view_func=Foodedit.as_view('admin'))
     app.add_url_rule(rule='/pictureedit/', view_func=PictureEdit.as_view('pictureedit'))
     app.add_url_rule(rule='/contentedit/<string:type>/<string:id>', view_func=ContentEdit.as_view('contentedit'))
