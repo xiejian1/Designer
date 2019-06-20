@@ -2,6 +2,7 @@
 import os
 
 from flaskdemo import create_app
+from flaskdemo.comments.picturecomments import PictureComments, PComment
 from flaskdemo.controller.admin import  PictureEdit, Foodedit
 from flaskdemo.controller.contentedit import ContentEdit, ImageUpload, EditeUpload
 from flaskdemo.controller.demo import JsonTest, JsonData, UserView
@@ -67,6 +68,9 @@ def main():
 
     app.add_url_rule(rule='/picture/addlove/',view_func=AddLove.as_view('addlove'))
     app.add_url_rule(rule='/picture/dellove/<string:loveid>/',view_func=DelLove.as_view('dellove'))
+    app.add_url_rule(rule='/picture/commentlist/<string:pictureid>/', view_func=PictureComments.as_view('picturecomments'))
+    app.add_url_rule(rule='/picture/comment/', view_func=PComment.as_view('pcomment'))
+
     app.add_url_rule(rule='/admin/', view_func=Foodedit.as_view('admin'))
     app.add_url_rule(rule='/pictureedit/', view_func=PictureEdit.as_view('pictureedit'))
     app.add_url_rule(rule='/contentedit/<string:type>/<string:id>', view_func=ContentEdit.as_view('contentedit'))

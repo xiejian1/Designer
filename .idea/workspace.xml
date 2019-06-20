@@ -14,41 +14,49 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flaskdemo/templates/microblog/picturelist.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="241" column="8" lean-forward="true" selection-start-line="241" selection-start-column="8" selection-end-line="241" selection-end-column="8" />
+            <state relative-caret-position="405">
+              <caret line="229" column="18" selection-start-line="229" selection-start-column="11" selection-end-line="229" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/flaskdemo/controller/love.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/flaskdemo/templates/microblog/picture/comments.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="34" column="14" lean-forward="true" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
+            <state relative-caret-position="183">
+              <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
               <folding>
-                <element signature="e#0#15#0" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#div#3;n#div#0;n#!!top" />
+                <element signature="n#script#2;n#!!top" />
+                <element signature="n#script#3;n#!!top" />
+                <element signature="n#script#4;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/flaskdemo/controller/contentedit.py">
+        <entry file="file://$PROJECT_DIR$/flaskdemo/templates/microblog/pictureedit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="47" column="86" selection-start-line="47" selection-start-column="55" selection-end-line="47" selection-end-column="86" />
+            <state relative-caret-position="-350">
+              <caret line="167" column="110" selection-start-line="167" selection-start-column="85" selection-end-line="167" selection-end-column="110" />
+              <folding>
+                <element signature="n#style#0;n#input#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#6;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/flaskdemo/controller/food.py">
+        <entry file="file://$PROJECT_DIR$/flaskdemo/comments/picturecomments.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="110" column="33" selection-start-line="110" selection-start-column="28" selection-end-line="110" selection-end-column="33" />
+            <state relative-caret-position="233">
+              <caret line="42" column="81" lean-forward="true" selection-start-line="42" selection-start-column="81" selection-end-line="42" selection-end-column="81" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -57,25 +65,43 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/flaskdemo/controller/admin.py">
+        <entry file="file://$PROJECT_DIR$/flaskdemo/controller/love.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="30" column="41" lean-forward="true" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="41" />
+            <state relative-caret-position="306">
+              <caret line="31" column="118" selection-start-line="31" selection-start-column="87" selection-end-line="31" selection-end-column="118" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#0#15#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/flaskdemo/controller/index.py">
+        <entry file="file://$PROJECT_DIR$/flaskdemo/controller/food.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+            <state relative-caret-position="279">
+              <caret line="110" column="98" lean-forward="true" selection-start-line="110" selection-start-column="67" selection-end-line="110" selection-end-column="98" />
               <folding>
-                <element signature="e#0#33#0" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flaskdemo/templates/microblog/picturedetail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flaskdemo/templates/microblog/contentedit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="119" column="18" lean-forward="true" selection-start-line="119" selection-start-column="18" selection-end-line="119" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -83,22 +109,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flaskdemo/model/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="162" column="22" selection-start-line="162" selection-start-column="22" selection-end-line="162" selection-end-column="22" />
+            <state relative-caret-position="300">
+              <caret line="171" column="20" selection-start-line="171" selection-start-column="6" selection-end-line="171" selection-end-column="20" />
               <folding>
                 <element signature="e#2#36#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/flaskdemo/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="650">
-              <caret line="32" column="57" lean-forward="true" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="57" />
-              <folding>
-                <element signature="e#37#60#0" expanded="true" />
+                <element signature="e#301#872#0" />
               </folding>
             </state>
           </provider>
@@ -107,8 +122,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flask_demo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-210">
-              <caret line="67" column="83" lean-forward="true" selection-start-line="67" selection-start-column="83" selection-end-line="67" selection-end-column="83" />
+            <state relative-caret-position="121">
+              <caret line="71" column="43" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="43" />
               <folding>
                 <element signature="e#1#10#0" expanded="true" />
               </folding>
@@ -141,6 +156,18 @@
       <find>food_img</find>
       <find>item_img</find>
       <find>foodlove</find>
+      <find>Demo</find>
+      <find>imgs.png</find>
+      <find>face</find>
+      <find>content-comment</find>
+      <find>comment</find>
+      <find>Input_Foot</find>
+      <find>imgBtn</find>
+      <find>postBtn</find>
+      <find>Input_text</find>
+      <find>save</find>
+      <find>content</find>
+      <find>comment-area</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -149,11 +176,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/flaskdemo/templates/microblog/picturedetail.html" />
-        <option value="$PROJECT_DIR$/flaskdemo/common/remote.py" />
-        <option value="$PROJECT_DIR$/flaskdemo/utils/testremote.py" />
-        <option value="$PROJECT_DIR$/flaskdemo/templates/microblog/fooddetail.html" />
-        <option value="$PROJECT_DIR$/flaskdemo/templates/microblog/food/vegetables.html" />
         <option value="$PROJECT_DIR$/flaskdemo/templates/microblog/food/snack.html" />
         <option value="$PROJECT_DIR$/flaskdemo/templates/microblog/food.html" />
         <option value="$PROJECT_DIR$/flaskdemo/templates/microblog/food/soup.html" />
@@ -194,20 +216,25 @@
         <option value="$PROJECT_DIR$/manager.py" />
         <option value="$PROJECT_DIR$/flaskdemo/model/exts.py" />
         <option value="$PROJECT_DIR$/flaskdemo/manager.py" />
-        <option value="$PROJECT_DIR$/flaskdemo/utils/filters.py" />
         <option value="$PROJECT_DIR$/flaskdemo/__init__.py" />
-        <option value="$PROJECT_DIR$/flaskdemo/model/models.py" />
-        <option value="$PROJECT_DIR$/flask_demo.py" />
         <option value="$PROJECT_DIR$/flaskdemo/controller/love.py" />
+        <option value="$PROJECT_DIR$/flaskdemo/templates/microblog/food/comments.html" />
         <option value="$PROJECT_DIR$/flaskdemo/templates/microblog/picturelist.html" />
+        <option value="$PROJECT_DIR$/flaskdemo/utils/filters.py" />
+        <option value="$PROJECT_DIR$/flaskdemo/model/models.py" />
+        <option value="$PROJECT_DIR$/../../index.html" />
+        <option value="$PROJECT_DIR$/flaskdemo/templates/microblog/picturedetail.html" />
+        <option value="$PROJECT_DIR$/flask_demo.py" />
+        <option value="$PROJECT_DIR$/flaskdemo/comments/picturecomments.py" />
+        <option value="$PROJECT_DIR$/flaskdemo/templates/microblog/picture/comments.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
-    <option name="width" value="1940" />
-    <option name="height" value="1050" />
+    <option name="width" value="1939" />
+    <option name="height" value="1049" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -230,6 +257,12 @@
               <item name="pictureDesigner" type="b2602c69:ProjectViewProjectNode" />
               <item name="pictureDesigner" type="462c0819:PsiDirectoryNode" />
               <item name="flaskdemo" type="462c0819:PsiDirectoryNode" />
+              <item name="comments" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pictureDesigner" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pictureDesigner" type="462c0819:PsiDirectoryNode" />
+              <item name="flaskdemo" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -237,6 +270,27 @@
               <item name="pictureDesigner" type="462c0819:PsiDirectoryNode" />
               <item name="flaskdemo" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pictureDesigner" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pictureDesigner" type="462c0819:PsiDirectoryNode" />
+              <item name="flaskdemo" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pictureDesigner" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pictureDesigner" type="462c0819:PsiDirectoryNode" />
+              <item name="flaskdemo" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pictureDesigner" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pictureDesigner" type="462c0819:PsiDirectoryNode" />
+              <item name="flaskdemo" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+              <item name="face" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pictureDesigner" type="b2602c69:ProjectViewProjectNode" />
@@ -267,10 +321,13 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="G:/重邮信科软件开发/重庆信科软件开发/搜索引擎系统架构/python_project/data_extraction" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/flaskdemo/static/img" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\python\python\Flask\pictureDesigner\flaskdemo\static\img" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\python\python\Flask\pictureDesigner" />
       <recent name="F:\python\python\Flask\pictureDesigner\flaskdemo\static\css\fonts" />
@@ -401,8 +458,8 @@
       <item itemvalue="Python.dicttest" />
       <item itemvalue="Python.elastictest" />
       <item itemvalue="Python.flask_demo (1)" />
-      <item itemvalue="Python.models" />
       <item itemvalue="Python.love" />
+      <item itemvalue="Python.models" />
     </list>
     <recent_temporary>
       <list>
@@ -431,7 +488,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4988399" visible="true" weight="0.19022457" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4988399" weight="0.19022457" />
       <window_info id="Structure" order="1" sideWeight="0.5011601" side_tool="true" weight="0.18080357" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -441,7 +498,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.7592068" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.10339943" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32917705" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Python Console" order="10" />
@@ -450,18 +507,18 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4988399" visible="true" weight="0.234375" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4988399" visible="true" weight="0.19022457" />
       <window_info id="Structure" order="1" sideWeight="0.5011601" side_tool="true" weight="0.18080357" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.13442624" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32917705" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.6373938" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.18328841" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.20963173" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32917705" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -470,37 +527,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/flaskdemo/static/img/77.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://E:/apache-maven-3.3.9/conf/settings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="52" column="45" lean-forward="true" selection-start-line="52" selection-start-column="45" selection-end-line="52" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flaskdemo/templates/microblog/picture/finishing.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3725">
-          <caret line="149" column="18" lean-forward="true" selection-start-line="91" selection-start-column="7" selection-end-line="149" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flaskdemo/templates/microblog/picture/artist.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="35" column="8" lean-forward="true" selection-end-line="158" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flaskdemo/templates/microblog/picture/posters.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="158" column="14" lean-forward="true" selection-start-line="158" selection-start-column="14" selection-end-line="158" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://G:/重邮信科软件开发/重庆信科软件开发/搜索引擎系统架构/字典.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -647,19 +673,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flaskdemo/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-          <folding>
-            <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#2;n#ul#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#3;n#ul#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/flaskdemo/static/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="397">
@@ -690,9 +703,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flaskdemo/flask_demo.py" />
-    <entry file="file://$PROJECT_DIR$/flaskdemo/start.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskdemo/start.py" />
     <entry file="file://$PROJECT_DIR$/flaskdemo/model/exts.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
@@ -710,13 +721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flaskdemo/utils/filters.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="21" column="16" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/flaskdemo/controller/pictrue.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -727,73 +731,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flaskdemo/manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flaskdemo/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="32" column="57" lean-forward="true" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="57" />
-          <folding>
-            <element signature="e#37#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flaskdemo/controller/index.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flaskdemo/templates/microblog/pictureedit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153">
-          <caret line="273" column="48" selection-start-line="273" selection-start-column="13" selection-end-line="273" selection-end-column="48" />
-          <folding>
-            <element signature="n#style#0;n#div#6;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flaskdemo/templates/microblog/contentedit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="120" column="23" selection-start-line="120" selection-start-column="12" selection-end-line="120" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flaskdemo/controller/food.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="110" column="33" selection-start-line="110" selection-start-column="28" selection-end-line="110" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flaskdemo/controller/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="30" column="41" lean-forward="true" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskdemo/manager.py" />
     <entry file="file://E:/virtualenv/restful/Lib/site-packages/kombu/asynchronous/aws/sqs/queue.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2185">
@@ -810,25 +748,122 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/flaskdemo/controller/contentedit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
+        <state relative-caret-position="950">
           <caret line="47" column="86" selection-start-line="47" selection-start-column="55" selection-end-line="47" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskdemo/controller/index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskdemo/templates/microblog/food/comments.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskdemo/utils/filters.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskdemo/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+          <folding>
+            <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#2;n#ul#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#3;n#ul#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#2;n#div#0;n#body#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskdemo/controller/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="30" column="41" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskdemo/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="9" column="15" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="15" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskdemo/templates/microblog/picturelist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="229" column="18" selection-start-line="229" selection-start-column="11" selection-end-line="229" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskdemo/templates/microblog/pictureedit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-350">
+          <caret line="167" column="110" selection-start-line="167" selection-start-column="85" selection-end-line="167" selection-end-column="110" />
+          <folding>
+            <element signature="n#style#0;n#input#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#6;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskdemo/templates/microblog/picturedetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskdemo/templates/microblog/contentedit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="119" column="18" lean-forward="true" selection-start-line="119" selection-start-column="18" selection-end-line="119" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flaskdemo/model/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="162" column="22" selection-start-line="162" selection-start-column="22" selection-end-line="162" selection-end-column="22" />
+        <state relative-caret-position="300">
+          <caret line="171" column="20" selection-start-line="171" selection-start-column="6" selection-end-line="171" selection-end-column="20" />
           <folding>
             <element signature="e#2#36#0" expanded="true" />
+            <element signature="e#301#872#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flaskdemo/controller/love.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="34" column="14" lean-forward="true" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
+        <state relative-caret-position="306">
+          <caret line="31" column="118" selection-start-line="31" selection-start-column="87" selection-end-line="31" selection-end-column="118" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -837,18 +872,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/flask_demo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-210">
-          <caret line="67" column="83" lean-forward="true" selection-start-line="67" selection-start-column="83" selection-end-line="67" selection-end-column="83" />
+        <state relative-caret-position="121">
+          <caret line="71" column="43" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="43" />
           <folding>
             <element signature="e#1#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flaskdemo/templates/microblog/picturelist.html">
+    <entry file="file://$PROJECT_DIR$/flaskdemo/controller/food.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="241" column="8" lean-forward="true" selection-start-line="241" selection-start-column="8" selection-end-line="241" selection-end-column="8" />
+        <state relative-caret-position="279">
+          <caret line="110" column="98" lean-forward="true" selection-start-line="110" selection-start-column="67" selection-end-line="110" selection-end-column="98" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskdemo/comments/picturecomments.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="42" column="81" lean-forward="true" selection-start-line="42" selection-start-column="81" selection-end-line="42" selection-end-column="81" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskdemo/templates/microblog/picture/comments.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#3;n#div#0;n#!!top" />
+            <element signature="n#script#2;n#!!top" />
+            <element signature="n#script#3;n#!!top" />
+            <element signature="n#script#4;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -125,7 +125,7 @@ ul.pagination li a:hover:not(.active) {background-color: #3071ea;}
                    {% endfor %}
                </div>
                <div class="content">
-                   {% if desc|length > 50 %}
+                   {% if picture.pic_desc|length > 50 %}
                    <p>
                        {{ picture.pic_desc|cut_desc}}
                    </p>
@@ -147,10 +147,10 @@ ul.pagination li a:hover:not(.active) {background-color: #3071ea;}
                        <span >{{ picture.picturelove|lovecount }}</span>
                    </div>
                    <div class="comment">
-                       <a href="/picture/commentlist/{{picture.id}}">
+                       <a href="/picture/commentlist/{{ picture.id }}">
                            <img src="/img/element/comment.png" alt="评论">
                         </a>
-                       <span>{{picture.picturecomment|commentcount}}</span>
+                       <span>{{ picture.picturecomment|commentcount }}</span>
                    </div>
                </div>
            </div>

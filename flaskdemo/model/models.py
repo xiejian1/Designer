@@ -6,10 +6,10 @@ from werkzeug.security import generate_password_hash,check_password_hash
 
 
 #数据库操作基本类
-from flaskdemo import create_app
+# from flaskdemo import create_app
 from flaskdemo.model.exts import db
 # from flask_sqlalchemy import SQLAlchemy
-app = create_app()
+# app = create_app()
 # db = SQLAlchemy(app)
 class ModelBase:
     # 添加一条数据
@@ -119,8 +119,8 @@ class FoodComment(ModelBase,db.Model):
     __tablename__="foodcomment"
     id = db.Column(db.Integer,autoincrement = True,primary_key = True)
     remote_addr = db.Column(db.String(32),nullable=True)
-    commnent_content = db.Column(db.String(500),nullable=True)
-    commnet_time = db.Column(db.Date,nullable=True)
+    comment_content = db.Column(db.String(500),nullable=True)
+    comment_time = db.Column(db.Date,nullable=True)
     qq = db.Column(db.String(30),nullable=True)
     qqname = db.Column(db.String(50),nullable=True)
     food_id = db.Column(db.String(32),db.ForeignKey("food.id",ondelete='CASCADE'))
@@ -174,8 +174,9 @@ class PictureComment(ModelBase,db.Model):
     __tablename__="picturecomment"
     id = db.Column(db.Integer,autoincrement = True,primary_key = True)
     remote_addr = db.Column(db.String(32),nullable=True)
-    commnent_content = db.Column(db.String(500),nullable=True)
-    commnet_time = db.Column(db.Date,nullable=True)
+    remote_area = db.Column(db.String(50),nullable=True)
+    comment_content = db.Column(db.String(500),nullable=True)
+    comment_time = db.Column(db.Date,nullable=True)
     qq = db.Column(db.String(30),nullable=True)
     qqname = db.Column(db.String(50),nullable=True)
     picture_id = db.Column(db.String(32),db.ForeignKey("picture.id",ondelete='CASCADE'))

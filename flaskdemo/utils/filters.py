@@ -1,3 +1,5 @@
+from flaskdemo.model.models import PictureComment
+
 
 def cut_desc(desc):
     """自定义过滤器，截取部分长度"""
