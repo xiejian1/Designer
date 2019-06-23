@@ -63,8 +63,8 @@
 }
 .item{
   margin-top:10px;
-  min-width:450px;
-  min-height:500px;
+  width:500px;
+  min-height:600px;
   padding-top:10px;
   border:1px solid rgb(189,204,238);
   box-shadow:1px 0 1px rgb(168,188,236),
@@ -83,8 +83,8 @@
   color:#e24535;
 }
 .food_type input {
-  margin-left: 20px;
-  width: 349px;
+  margin-left: 10px;
+  width: 397px;
   height:30px;
   border-radius:3px;
   padding-left:5px;
@@ -92,10 +92,11 @@
   font-size:16px;
   font-family:Microsoft YaHei;
   margin-right: 3px;
+  border:0px;
 }
 .food_type select{
-  margin-left: 20px;
-  width: 363px;
+  margin-left: 10px;
+  width: 410px;
   height:30px;
   border-radius:3px;
   padding-left:5px;
@@ -115,11 +116,11 @@
    color:#e24535;
 }
  textarea{
-   min-height:150px;
-   width:350px;
+  min-height:150px;
+   width:395px;
    padding-left:5px;
    padding-right:5px;
-   margin-left:10px;
+   margin-left:3px;
    margin-right:3px;
    border-width:0px;
    padding-top:0px;
@@ -144,6 +145,11 @@
   color:white;
   font-size:16px;
   opacity:0.7;
+}
+#img-box{
+   display:flex;
+   flex-direction:row;
+   flex-wrap:wrap;
 }
 </style>
 {% endblock %}
@@ -256,7 +262,8 @@
                     this.parentNode.style.display = 'block';
                     var oParent = this.parentNode;
                     if(nowHeight){
-                        oParent.style.paddingTop = (oParent.offsetHeight - nowHeight)/2 + 'px';
+                        oParent.style.paddingTop =  '3px';
+                        oParent.style.paddingLeft = '3px';
                     }
                 }
 			}
@@ -280,7 +287,7 @@
 	}
  }
  function ReSizePic(ThisPic) {
-    var RePicWidth = 200; //这里修改为您想显示的宽度值
+    var RePicWidth = 80; //这里修改为您想显示的宽度值
     var TrueWidth = ThisPic.width; //图片实际宽度
     var TrueHeight = ThisPic.height; //图片实际高度
     if(TrueWidth>TrueHeight){
@@ -294,6 +301,7 @@
         //宽小于高
         var reHeight = RePicWidth;
         ThisPic.height = reHeight;
+        ThisPic.style.paddingLeft = '3px';
     }
  }
 </script>

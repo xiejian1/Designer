@@ -25,3 +25,5 @@ def commentcount(Comment):
     """查询评论的总数"""
     count = Comment.count()
     return count
+
+#首页之取到第一张图片

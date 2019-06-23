@@ -245,11 +245,11 @@
           <div class="content-top">
               <div class="content-name">
                   <span>用户名:</span>
-                  <input name="qqname" type="text" autocomplete="off"/>
+                  <input name="qqname" type="text" required="required" autocomplete="off"/>
               </div>
               <div class="content-qq">
                   <span>QQ:</span>
-                  <input name="qq" type="text" autocomplete="off" />
+                  <input name="qq" type="text" required="required" autocomplete="off" />
               </div>
           </div>
           <!--表情评论-->
@@ -439,6 +439,14 @@
         qqname = $('input[name="qqname"]').val();
         qq = $('input[name="qq"]').val();
         console.log('打印取到的值',qqname,qq);
+        if(qqname==''||qq==''){
+          alert('不能为空，填写之后才能提交!');
+          return ;
+        }
+        if(content==''){
+          alert('内容不能为空！,请填写内容');
+          return;
+        }
         var data = {
          'pictureid':pictureid,
          'area':area,
@@ -540,7 +548,6 @@
                   var img = '<img src="/img/face/'+facePath[i].facePath.toString()+'" \/>';
                   $(this).append(img);
                   console.log('打印替换后的值',str.replace(emotion,'').replace('[','').replace(']',''));
-
                   console.log('匹配成功！');
                 }
               }
