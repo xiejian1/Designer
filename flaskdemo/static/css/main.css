@@ -122,8 +122,9 @@ align-items:center;
    padding-left:5px;
    padding-top:5px;
    display:flex;
+   flex-wrap:wrap;
+   flex-direction:row;
    padding-bottom: 5px;
-<!--   justify-content:space-around;-->
  }
 .picture{
    order:2;
@@ -142,5 +143,5 @@ align-items:center;
  .food_img a{
       color:red;
       text-decoration:none;
-    }
+ }
 

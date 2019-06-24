@@ -111,6 +111,7 @@ class FoodLove(ModelBase,db.Model):
     __tablename__="foodlove"
     id = db.Column(db.Integer,autoincrement=True,primary_key=True)
     remote_addr = db.Column(db.String(32),nullable=True)
+    remote_area = db.Column(db.String(32), nullable=True)
     love_time = db.Column(db.Date,nullable=True)
     food_id = db.Column(db.String(32),db.ForeignKey("food.id",ondelete='CASCADE'))
 

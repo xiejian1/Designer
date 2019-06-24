@@ -2,7 +2,7 @@
 import os
 
 from flaskdemo import create_app
-from flaskdemo.comments.picturecomments import PictureComments, PComment
+from flaskdemo.comments.picturecomments import PictureComments, PComment, FoodComments, FComment
 from flaskdemo.controller.admin import  PictureEdit, Foodedit
 from flaskdemo.controller.contentedit import ContentEdit, ImageUpload, EditeUpload
 from flaskdemo.controller.demo import JsonTest, JsonData, UserView
@@ -10,7 +10,7 @@ from flaskdemo.controller.entity import createtable, add, delete, update
 from flaskdemo.controller.font import Fontlist, Fontdetail, Logolist, Logodetail
 from flaskdemo.controller.food import Foodlist, Fooddetail, Vegetablelist, Snacklist, Snackdetail, Souplist, Soupdetail
 from flaskdemo.controller.index import ShowUsers
-from flaskdemo.controller.love import AddLove, DelLove
+from flaskdemo.controller.love import AddLove, DelLove, FoodAddLove, FoodDelLove
 from flaskdemo.controller.meat import Meatlist, Meatdetail, Meatslist, Meatsdetail, Dessertlist, Dessertdetail, \
     Noodleslist, Noodlesdetail
 from flaskdemo.controller.pictrue import Pictruelist, Picturedetail, Palettelist, Palettedetail, Finishinglist, \
@@ -47,6 +47,11 @@ def main():
     app.add_url_rule(rule='/dessertdetail/<string:id>', view_func=Dessertdetail.as_view('dessertdetail'))
     app.add_url_rule(rule='/noodlesdetail/<string:id>', view_func=Noodlesdetail.as_view('noodlesdetail'))
 
+    app.add_url_rule(rule='/food/commentlist/<string:pictureid>/',view_func=FoodComments.as_view('foodcomments'))
+    app.add_url_rule(rule='/food/comment/', view_func=FComment.as_view('fcomment'))
+    app.add_url_rule(rule='/food/addlove/', view_func=FoodAddLove.as_view('foodaddlove'))
+    app.add_url_rule(rule='/food/dellove/<string:loveid>/', view_func=FoodDelLove.as_view('fooddellove'))
+
     app.add_url_rule(rule='/picture/cutout/', view_func=Pictruelist.as_view('pictruelist'))
     app.add_url_rule(rule='/picturedetail/<string:id>', view_func=Picturedetail.as_view('picturedetail'))
     app.add_url_rule(rule='/picture/palette/',view_func=Palettelist.as_view('palettelist'))
@@ -76,6 +81,7 @@ def main():
     app.add_url_rule(rule='/contentedit/<string:type>/<string:id>', view_func=ContentEdit.as_view('contentedit'))
     app.add_url_rule(rule='/editeupload/', view_func=EditeUpload.as_view('editupload'))
     app.add_url_rule(rule='/imageupload/', view_func=ImageUpload.as_view('imageupload'))
+
 
     app.add_url_rule(rule='/jsontest/', view_func=JsonTest.as_view('json_test'))
     app.add_url_rule(rule='/json/', view_func=JsonData.as_view('json_demo'))

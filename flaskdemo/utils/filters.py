@@ -1,3 +1,5 @@
+import sqlalchemy
+
 from flaskdemo.model.models import PictureComment
 
 
@@ -26,4 +28,18 @@ def commentcount(Comment):
     count = Comment.count()
     return count
 
-#首页之取到第一张图片
+#首页只取到第一张图片
+def foodpic(foodpic):
+    """从多张图片中取到第一张图片"""
+    print('提取出照片')
+    if foodpic.count() > 0:
+        pic = foodpic.all()[0]
+        return pic.pic_url
+
+#首页只取到第一张图片设计照片
+def picturepic(picturepic):
+    """从多张图片中取到第一张图片"""
+    print('提取出照片')
+    if picturepic.count()>0:
+        pic = picturepic.all()[0]
+        return pic.pic_url
