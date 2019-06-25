@@ -10,11 +10,7 @@
     .item{
       min-height:330px;
       padding-top:10px;
-      border:1px solid rgb(189,204,238);
-      box-shadow:1px 0 1px rgb(168,188,236),
-                 -1px 0 1px rgb(168,188,236),
-                 0px 1px 1px rgb(168,188,236),
-                 0px -1px 1px rgb(168,188,236);
+      border-bottom:1.5px solid rgb(189,204,238);
       margin-bottom:5px;
       margin-top:5px;
     }
@@ -91,7 +87,12 @@ ul.pagination li a:hover:not(.active) {background-color: #3071ea;}
 {% endblock %}
 {% block food %}
    <div class="lists">
-       {% if foods %}
+       {% if foods|length==0 %}
+       <div style="color:red;opacity:0.8;">
+           <p>
+               暂时没有数据,近期将会更新....
+           </p>
+       </div>
        {% for food in foods %}
            <div class="item">
                <h4>{{food.food_title}}</h4>

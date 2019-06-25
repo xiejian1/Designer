@@ -5,6 +5,7 @@
        display:flex;
        flex-direction:column;
        align-items:center;
+       min-height:550px;
      }
      .comment_img{
         display:flex;
@@ -40,9 +41,10 @@
         border:1px dashed #fff;
         padding:2px 0px;
         margin-bottom:3px;
+        width:700px;
      }
      .comment{
-        width:700px;
+
         height:30px;
         border-bottom:1px solid #fff;
      }
@@ -59,7 +61,7 @@
        line-height:30px;
      }
      .comment-content{
-       height:50px;
+       min-height:50px;
      }
      .comment-content p{
        padding-left:10px;
@@ -224,7 +226,7 @@
           </div>
       </div>
       <div class="comment-area"><span>评论区：</span> <a onclick="comment()" style="cursor:pointer;">评论</a></div>
-      {% if comments|length ==0 %}
+      {% if comments|length == 0 %}
       <div class="comment-content">
         <p>暂时没有评论</p>
       </div>
@@ -232,11 +234,13 @@
       {% for comment in comments %}
        <div class="comment-list">
                <div class="comment">
-                   <span class="comment_name">@{{comment.qq}}</span>
+                   <span class="comment_name">@{{comment.qqname}}</span>
                    <span class="comment-date"> {{comment.comment_time}}</span>
                </div>
                <div class="comment-content">
-                   <p>{{ comment.comment_content }}</p>
+
+                   <p>{{comment.comment_content}}</p>
+
                </div>
        </div>
       {% endfor %}

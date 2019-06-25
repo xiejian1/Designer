@@ -10,11 +10,8 @@
     .item{
       min-height:330px;
       padding-top:10px;
-      border:1px solid rgb(189,204,238);
-      box-shadow:1px 0 1px rgb(168,188,236),
-                 -1px 0 1px rgb(168,188,236),
-                 0px 1px 1px rgb(168,188,236),
-                 0px -1px 1px rgb(168,188,236);
+      border-bottom:1.5px solid rgb(189,204,238);
+
       margin-bottom:5px;
       margin-top:5px;
     }
@@ -49,19 +46,41 @@
       margin:0px;
     }
     .button{
+        display:flex;
+        flex-direction:row;
+        justify-content:center;
+    }
+    .see_detail{
       text-align:center;
       margin-bottom:3px;
       margin-top:3px;
     }
-    .button a{
+    .see_detail a{
       text-decoration:none;
       color:red;
     }
-    .button span{
+    .see_detail span{
       height:25px;
       width:100px;
       border:1px solid rgb(241,88,67);
       border-radius:5px;
+    }
+    .love , .comment{
+      padding-left:10px;
+    }
+    .love span, .comment span{
+       font-size:16px;
+       font-family:Microsoft Yahei;
+       color:red;
+       opacity:0.8;
+       margin-top:-3px;
+       margin-left:-5px;
+    }
+    .love img ,.comment img{
+       padding-top:5px;
+    }
+    .comment a{
+      text-decoration:none;
     }
 ul.pagination {
     display: inline-block;
@@ -117,7 +136,19 @@ ul.pagination li a:hover:not(.active) {background-color: #3071ea;}
                    {% endif %}
                </div>
                <div class="button">
-                       <a href="/palettedetail/{{ picture.id }}">&#8594;<span>点击查看详细</span></a>
+                    <div class="see_detail">
+                       <a href="/picturedetail/{{ picture.id }}">&#8594;<span>点击查看详细</span></a>
+                    </div>
+                   <div class="love">
+                       <img src="/img/element/love.png" alt="喜欢" onclick='addlove(this,"{{ picture.id }}")' >
+                       <span >{{ picture.picturelove|lovecount }}</span>
+                   </div>
+                   <div class="comment">
+                       <a href="/picture/commentlist/{{ picture.id }}">
+                           <img src="/img/element/comment.png" alt="评论">
+                        </a>
+                       <span>{{ picture.picturecomment|commentcount }}</span>
+                   </div>
                </div>
            </div>
        {% endfor %}
@@ -178,5 +209,49 @@ ul.pagination li a:hover:not(.active) {background-color: #3071ea;}
          }
     });
   });
+</script>
+<script type="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script>
+    var count = 0;
+    var loveid = 0;
+    var loveid = 0;
+    function addlove(obj,id){
+      var x = navigator;
+      console.log('打印传入的值',count);
+      console.log('打印图片的id值',id);
+      count = count+1;
+      if(count%2==0){
+        $.ajax({
+           url:'/picture/dellove/'+loveid,
+           type:"GET",
+           success:function(data){
+              if(data.msg='ok'){
+                  obj.src = '/img/element/love.png';
+                  $('.love span').html(data.count);
+              }
+           }
+       });
+      }else if(count%2 == 1){
+       love = {
+        'ip':returnCitySN.cip,
+        'place':returnCitySN.cname,
+        'id':id,
+       }
+       $.ajax({
+           url:'/picture/addlove/',
+           data:JSON.stringify(love),
+           type:"POST",
+           dataType:"json",
+           success:function(data){
+              if(data.msg='ok'){
+                  obj.src = '/img/element/loveclick.png';
+                  $('.love span').html(data.count);
+                  loveid = data.loveid;
+              }
+           }
+       });
+
+      }
+    }
 </script>
 {% endblock %}

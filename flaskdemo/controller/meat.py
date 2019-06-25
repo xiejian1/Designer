@@ -62,7 +62,7 @@ class Meatslist(View):
             page = int(1)
             per_page = int(8)
             # paginate = Food.query.paginate(page, per_page, error_out=False)
-            paginate = Food.query.filter(Food.food_type=='meat').order_by(Food.food_date.desc())\
+            paginate = Food.query.filter(Food.food_type=='meats').order_by(Food.food_date.desc())\
                 .paginate(page, per_page, error_out=False)
             foods = paginate.items
             return render_template('microblog/food/meats.html',paginate=paginate,foods=foods)

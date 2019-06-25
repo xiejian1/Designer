@@ -10,11 +10,7 @@
     .item{
       min-height:330px;
       padding-top:10px;
-      border:1px solid rgb(189,204,238);
-      box-shadow:1px 0 1px rgb(168,188,236),
-                 -1px 0 1px rgb(168,188,236),
-                 0px 1px 1px rgb(168,188,236),
-                 0px -1px 1px rgb(168,188,236);
+      border-bottom:1.5px solid rgb(189,204,238);
       margin-bottom:5px;
       margin-top:5px;
     }
@@ -48,21 +44,46 @@
     .content p{
       margin:0px;
     }
-    .button{
+
+   .button{
+        display:flex;
+        flex-direction:row;
+        justify-content:center;
+    }
+    .see_detail{
       text-align:center;
       margin-bottom:3px;
       margin-top:3px;
     }
-    .button a{
+    .see_detail a{
       text-decoration:none;
       color:red;
     }
-    .button span{
+    .see_detail span{
       height:25px;
       width:100px;
       border:1px solid rgb(241,88,67);
       border-radius:5px;
     }
+
+    .love , .comment{
+      padding-left:10px;
+    }
+    .love span, .comment span{
+       font-size:16px;
+       font-family:Microsoft Yahei;
+       color:red;
+       opacity:0.8;
+       margin-top:-3px;
+       margin-left:-5px;
+    }
+    .love img ,.comment img{
+       padding-top:5px;
+    }
+    .comment a{
+      text-decoration:none;
+    }
+
 ul.pagination {
     display: inline-block;
     padding: 0;
@@ -117,7 +138,19 @@ ul.pagination li a:hover:not(.active) {background-color: #3071ea;}
                    {% endif %}
                </div>
                <div class="button">
-                       <a href="/meatdetail/{{ food.id }}">&#8594;<span>点击查看详细</span></a>
+                    <div class="see_detail">
+                       <a href="/fooddetail/{{ food.id }}">&#8594;<span>点击查看详细</span></a>
+                    </div>
+                   <div class="love">
+                       <img src="/img/element/love.png" alt="喜欢" onclick='addlove(this,"{{ food.id }}")' >
+                       <span id="{{ food.id }}">{{ food.foodlove|lovecount }}</span>
+                   </div>
+                   <div class="comment">
+                       <a href="/food/commentlist/{{ food.id }}">
+                           <img src="/img/element/comment.png" alt="评论">
+                        </a>
+                       <span>{{ food.foodcomment|commentcount }}</span>
+                   </div>
                </div>
            </div>
        {% endfor %}
@@ -152,16 +185,16 @@ ul.pagination li a:hover:not(.active) {background-color: #3071ea;}
 {% endblock %}
 {% block script %}
 <script src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
 <script>
   $(document).ready(function(){
     $('#meat').addClass("active");
     $('body img').each(function() {
-         var maxWidth = 400; // 图片最大宽度
-         var maxHeight = 600;    // 图片最大高度
+         var maxWidth = 300; // 图片最大宽度
+         var maxHeight = 400;    // 图片最大高度
          var ratio = 0;  // 缩放比例
          var width = $(this).width();    // 图片实际宽度
          var height = $(this).height();  // 图片实际高度
-
          // 检查图片是否超宽
          if(width > maxWidth){
              ratio = maxWidth / width;   // 计算缩放比例
@@ -178,5 +211,48 @@ ul.pagination li a:hover:not(.active) {background-color: #3071ea;}
          }
     });
   });
+</script>
+<script>
+    var count = 0;
+    var loveid = 0;
+    var loveid = 0;
+    function addlove(obj,id){
+      var x = navigator;
+      console.log('打印传入的值',count);
+      console.log('打印图片的id值',id);
+      count = count+1;
+      if(count%2==0){
+        $.ajax({
+           url:'/food/dellove/'+loveid,
+           type:"GET",
+           data:{'id':id},
+           success:function(data){
+              if(data.msg='ok'){
+                  obj.src = '/img/element/love.png';
+                  $('#'+id).html(data.count);
+              }
+           }
+       });
+      }else if(count%2 == 1){
+       love = {
+        'ip':returnCitySN.cip,
+        'place':returnCitySN.cname,
+        'id':id,
+       }
+       $.ajax({
+           url:'/food/addlove/',
+           data:JSON.stringify(love),
+           type:"POST",
+           dataType:"json",
+           success:function(data){
+              if(data.msg='ok'){
+                  obj.src = '/img/element/loveclick.png';
+                  $('#'+id).html(data.count);
+                  loveid = data.loveid;
+              }
+           }
+       });
+      }
+    }
 </script>
 {% endblock %}
