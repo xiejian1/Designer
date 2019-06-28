@@ -29,6 +29,29 @@ def allowed_file(filename):
 #          filename = file.filename
 #          print('打印文件的名字', filename)
 #          return Response(json.dumps({'msg': 'ok'}))
+class Editor(MethodView):
+    def get(self):
+        """富文本编辑测试"""
+        print('富文本进行测试')
+        return render_template('microblog/editor.html')
+    def post(self):
+        print('图片上传')
+        file = request.files['files']
+        filetype = request.args.get('dir')
+        print("打印类型",filetype)
+        print('打印文件的名字', file.filename)
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            filepath = os.path.join(UPLOAD_FOLDER, filename)
+            file.save(filepath)
+            urlpath = '/img/upload/' + filename
+            print('打印返回的路径', urlpath)
+            print('打印类型',type(urlpath))
+            respose_upload = {
+                "error": 0,
+                "url": urlpath
+            }
+        return Response(json.dumps(respose_upload))
 
 class EditerUplaod(MethodView):
 
@@ -68,7 +91,7 @@ class ImageUpload(MethodView):
 
     def post(self):
         print('图片上传')
-        file = request.files['file']
+        file = request.files['files']
         print('打印文件的名字',file.filename)
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)

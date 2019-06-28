@@ -16,8 +16,7 @@ from flaskdemo.controller.meat import Meatlist, Meatdetail, Meatslist, Meatsdeta
 from flaskdemo.controller.pictrue import Pictruelist, Picturedetail, Palettelist, Palettedetail, Finishinglist, \
     Finishingdetail, Photographylist, Photographydetail, Illustrationlist, Illustrationdetail, Artistlist, Artistdetail, \
     Posterslist, Postersdetail
-from flaskdemo.controller.test import Upload,Yulan, Multiple, EditerUplaod
-
+from flaskdemo.controller.test import Upload, Yulan, Multiple, EditerUplaod, Editor
 
 BASE_DIR = os.path.abspath(os.path.dirname(__name__))
 
@@ -90,6 +89,7 @@ def main():
     app.add_url_rule(rule='/add/', view_func=add.as_view('add'))
     app.add_url_rule(rule='/delete/', view_func=delete.as_view('delate'))
     app.add_url_rule(rule='/update/', view_func=update.as_view('update'))
+    app.add_url_rule(rule='/editor/',view_func=Editor.as_view('editor'))
 
     app.run(debug=True, host='localhost', port=8000)
 
