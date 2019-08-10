@@ -514,7 +514,6 @@
             {faceName:"敲打",facePath:"38.gif"},
             {faceName:"再见",facePath:"39.gif"},
             {faceName:"擦汗",facePath:"40.gif"},
-
             {faceName:"抠鼻",facePath:"41.gif"},
             {faceName:"鼓掌",facePath:"42.gif"},
             {faceName:"糗大了",facePath:"43.gif"},
@@ -543,7 +542,9 @@
       var pattern = /\[.*?\]/;
       var emotions = str.match(pattern);
       if (emotions){
+         console.log('打印匹配的数据',emotions);
          for(var i=0;i<emotions.length;i++){
+              console.log('打印提出的数据',emotions.length);
               console.log('打印提取的值',emotions[i].replace('[','').replace(']',''));
               var emotion = emotions[i].replace('[','').replace(']','');
               for (var i=0;i<facePath.length;i++){

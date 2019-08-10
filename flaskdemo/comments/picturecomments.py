@@ -10,7 +10,7 @@ class PictureComments(MethodView):
     """对内容进行评论"""
     def get(self,pictureid):
         picture = Picture.query.get(pictureid)
-        comments = PictureComment.query.filter(PictureComment.picture_id==pictureid).order_by(PictureComment.comment_time.desc()).all()
+        comments = PictureComment.query.filter(PictureComment.picture_id == pictureid).order_by(PictureComment.comment_time.desc()).all()
 
         return render_template('microblog/picture/comments.html',picture=picture,comments=comments)
 
